@@ -3,10 +3,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Check } from "lucide-react";
 
-const plansData: Record<string, { title: string; emoji: string; plans: { name: string; price: string; features: string[]; popular?: boolean }[] }> = {
+const plansData: Record<string, { title: string; plans: { name: string; price: string; features: string[]; popular?: boolean }[] }> = {
   "vps-hosting": {
     title: "VPS Hosting",
-    emoji: "☁️",
     plans: [
       { name: "Starter", price: "$4.99/mo", features: ["1 vCPU", "1GB RAM", "20GB NVMe SSD", "1TB Bandwidth", "DDoS Protection"] },
       { name: "Pro", price: "$9.99/mo", features: ["2 vCPU", "4GB RAM", "60GB NVMe SSD", "3TB Bandwidth", "DDoS Protection", "Priority Support"], popular: true },
@@ -15,7 +14,6 @@ const plansData: Record<string, { title: string; emoji: string; plans: { name: s
   },
   "game-hosting": {
     title: "Game Hosting",
-    emoji: "🎮",
     plans: [
       { name: "Basic", price: "$2.99/mo", features: ["2GB RAM", "Mod Support", "Auto Backups", "DDoS Protection"] },
       { name: "Standard", price: "$5.99/mo", features: ["4GB RAM", "Mod Support", "Auto Backups", "DDoS Protection", "Priority Queue"], popular: true },
@@ -24,7 +22,6 @@ const plansData: Record<string, { title: string; emoji: string; plans: { name: s
   },
   "bot-hosting": {
     title: "Bot Hosting",
-    emoji: "🤖",
     plans: [
       { name: "Hobby", price: "$1.99/mo", features: ["512MB RAM", "1 Bot", "Auto Restart", "99.9% Uptime"] },
       { name: "Developer", price: "$4.99/mo", features: ["1GB RAM", "3 Bots", "Auto Restart", "Custom Domain", "Priority Support"], popular: true },
@@ -33,7 +30,6 @@ const plansData: Record<string, { title: string; emoji: string; plans: { name: s
   },
   "domain-hosting": {
     title: "Domain Hosting",
-    emoji: "🌐",
     plans: [
       { name: ".com", price: "$9.99/yr", features: ["Free SSL", "DNS Management", "WHOIS Privacy", "Email Forwarding"] },
       { name: ".dev", price: "$12.99/yr", features: ["Free SSL", "DNS Management", "WHOIS Privacy", "Email Forwarding", "DNSSEC"], popular: true },
@@ -52,7 +48,6 @@ const ServicePage = () => {
       <section className="pt-32 pb-24 px-6">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <div className="text-5xl mb-4">{data.emoji}</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="gradient-text">{data.title}</span> Plans
             </h1>
