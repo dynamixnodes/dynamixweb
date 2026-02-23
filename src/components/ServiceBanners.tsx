@@ -4,7 +4,6 @@ import { ArrowRight, Cloud, Gamepad2, Bot, Globe } from "lucide-react";
 const services = [
   {
     icon: Cloud,
-    emoji: "☁️",
     title: "VPS Hosting",
     desc: "High-performance virtual private servers with dedicated resources and full root access.",
     features: ["Full Root Access", "Instant Deployment", "NVMe SSD", "DDoS Protection"],
@@ -13,7 +12,6 @@ const services = [
   },
   {
     icon: Gamepad2,
-    emoji: "🎮",
     title: "Game Hosting",
     desc: "Optimized game servers with one-click installs, mod support, and ultra-low latency.",
     features: ["One-Click Install", "Mod Support", "Auto Backups", "24/7 Support"],
@@ -22,7 +20,6 @@ const services = [
   },
   {
     icon: Bot,
-    emoji: "🤖",
     title: "Bot Hosting",
     desc: "Always-on bot hosting with guaranteed uptime, perfect for Discord bots and automation.",
     features: ["24/7 Uptime", "Node.js & Python", "Auto Restart", "Custom Domains"],
@@ -31,7 +28,6 @@ const services = [
   },
   {
     icon: Globe,
-    emoji: "🌐",
     title: "Domain Hosting",
     desc: "Register and manage domains with free SSL, DNS management, and WHOIS privacy.",
     features: ["Free SSL", "DNS Management", "WHOIS Privacy", "Email Forwarding"],
@@ -42,10 +38,11 @@ const services = [
 
 const ServiceBanners = () => {
   return (
-    <section className="py-24 px-6">
+    <section id="services" className="py-24 px-6">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          <span className="gradient-text">Our Services</span>
+          <span className="text-foreground">Our</span>{" "}
+          <span className="gradient-text">Services</span>
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
           Everything you need to deploy and scale your projects
@@ -60,7 +57,9 @@ const ServiceBanners = () => {
               {/* Background glow */}
               <div className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-10 blur-[60px] gradient-primary transition-opacity duration-500" />
 
-              <div className="text-4xl mb-4">{s.emoji}</div>
+              <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <s.icon className="w-7 h-7 text-primary-foreground" />
+              </div>
               <h3 className="text-xl font-bold mb-2">{s.title}</h3>
               <p className="text-sm text-muted-foreground mb-4">{s.desc}</p>
               <p className="text-sm font-semibold gradient-text mb-4">{s.price}</p>

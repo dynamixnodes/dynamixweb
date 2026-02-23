@@ -1,5 +1,4 @@
 import { Shield, Zap, Clock, Server } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -7,7 +6,7 @@ const HeroSection = () => {
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-[120px] gradient-primary" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full opacity-8 blur-[100px]" style={{ background: "hsl(30 100% 55%)" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full opacity-8 blur-[100px] gradient-primary" />
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="sparkle" style={{
             top: `${20 + Math.random() * 60}%`,
@@ -33,18 +32,12 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
-          <Link
-            to="/game-hosting"
+          <a
+            href="#services"
             className="px-8 py-3 rounded-lg font-medium gradient-primary text-primary-foreground hover:opacity-90 transition-opacity"
           >
             Get Started
-          </Link>
-          <Link
-            to="/vps-hosting"
-            className="px-8 py-3 rounded-lg font-medium gradient-border hover:opacity-90 transition-opacity"
-          >
-            View Plans
-          </Link>
+          </a>
         </div>
 
         {/* Feature badges */}

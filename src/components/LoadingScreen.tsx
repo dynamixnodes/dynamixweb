@@ -46,12 +46,9 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
       {/* Loading bar */}
       <div className="w-64 h-1.5 bg-muted rounded-full overflow-hidden">
         <div
-          className="h-full rounded-full transition-all duration-100 ease-out"
+          className="h-full rounded-full transition-all duration-100 ease-out gradient-primary"
           style={{
             width: `${Math.min(progress, 100)}%`,
-            background: "linear-gradient(90deg, hsl(253 100% 66%), hsl(255 100% 63%), hsl(30 100% 60%))",
-            backgroundSize: "200% 100%",
-            animation: "loading-gradient 1.5s linear infinite",
           }}
         />
       </div>

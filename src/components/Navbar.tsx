@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Cloud, Gamepad2, Bot, Globe } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
 
 const services = [
-  { name: "☁️ VPS Hosting", path: "/vps-hosting" },
-  { name: "🎮 Game Hosting", path: "/game-hosting" },
-  { name: "🤖 Bot Hosting", path: "/bot-hosting" },
-  { name: "🌐 Domain Hosting", path: "/domain-hosting" },
+  { name: "VPS Hosting", icon: Cloud, path: "/vps-hosting" },
+  { name: "Game Hosting", icon: Gamepad2, path: "/game-hosting" },
+  { name: "Bot Hosting", icon: Bot, path: "/bot-hosting" },
+  { name: "Domain Hosting", icon: Globe, path: "/domain-hosting" },
 ];
 
 const Navbar = () => {
@@ -52,9 +52,10 @@ const Navbar = () => {
                   <Link
                     key={s.path}
                     to={s.path}
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                     onClick={() => setServicesOpen(false)}
                   >
+                    <s.icon className="w-4 h-4 text-primary" />
                     {s.name}
                   </Link>
                 ))}
@@ -86,7 +87,8 @@ const Navbar = () => {
           <div className="px-6 py-4 flex flex-col gap-4">
             <Link to="/" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
             {services.map((s) => (
-              <Link key={s.path} to={s.path} className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
+              <Link key={s.path} to={s.path} className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
+                <s.icon className="w-4 h-4 text-primary" />
                 {s.name}
               </Link>
             ))}

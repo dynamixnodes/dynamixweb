@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import ServiceBanners from "@/components/ServiceBanners";
 import WhyChoose from "@/components/WhyChoose";
 import FAQ from "@/components/FAQ";
+import NeedHelp from "@/components/NeedHelp";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
@@ -20,6 +21,7 @@ const Index = () => {
         <ServiceBanners />
         <WhyChoose />
         <FAQ />
+        <NeedHelp />
         <Footer />
       </div>
     </>
