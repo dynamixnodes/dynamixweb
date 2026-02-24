@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Cloud, Gamepad2, Bot, Globe } from "lucide-react";
+import { ArrowRight, Server, Gamepad2, Bot, Globe } from "lucide-react";
 
 const services = [
   {
-    icon: Cloud,
+    icon: Server,
     title: "VPS Hosting",
     desc: "High-performance virtual private servers with dedicated resources and full root access.",
     features: ["Full Root Access", "Instant Deployment", "NVMe SSD", "DDoS Protection"],
