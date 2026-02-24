@@ -19,8 +19,8 @@ const HeroSection = () => {
       <div className="container mx-auto text-center relative z-10">
         {/* Premium badge */}
         <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 mb-8 glow-effect">
-          <span className="text-lg">✦</span>
-          <span className="text-sm font-medium gradient-text">Premium Cloud Hosting</span>
+          <span className="text-lg text-primary">✦</span>
+          <span className="text-sm font-medium text-foreground">Premium Cloud Hosting</span>
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
