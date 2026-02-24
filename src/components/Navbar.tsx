@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X, Cloud, Gamepad2, Bot, Globe } from "lucide-react";
+import { ChevronDown, Menu, X, Cloud, Gamepad2, Bot, Globe, MessageCircle } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
 
 const services = [
