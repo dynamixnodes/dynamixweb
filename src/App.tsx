@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Support from "./pages/Support";
 import ServicePage from "./pages/ServicePage";
+import Chatbot from "./pages/Chatbot";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/support" element={<Support />} />
+          <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/:service" element={<ServicePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

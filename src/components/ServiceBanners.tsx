@@ -52,16 +52,16 @@ const ServiceBanners = () => {
           {services.map((s, i) => (
             <div
               key={i}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(253_100%_66%/0.15)] overflow-hidden"
+              className="group relative p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(253_100%_66%/0.15)] overflow-hidden"
             >
               {/* Background glow */}
               <div className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-0 group-hover:opacity-10 blur-[60px] gradient-primary transition-opacity duration-500" />
 
-              <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <s.icon className="w-7 h-7 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <s.icon className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{s.desc}</p>
+              <h3 className="text-lg font-bold mb-2">{s.title}</h3>
+              <p className="text-sm text-muted-foreground mb-3">{s.desc}</p>
               <p className="text-sm font-semibold gradient-text mb-4">{s.price}</p>
 
               <ul className="space-y-2 mb-6">

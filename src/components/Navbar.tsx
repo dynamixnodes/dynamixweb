@@ -28,15 +28,15 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3 flex-shrink-0">
           <img src={logo} alt="DynamixNodes" className="w-10 h-10 rounded-lg" />
           <span className="text-xl font-bold tracking-tight">
             <span className="gradient-text">Dynamix</span>Nodes
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav - centered links */}
+        <div className="hidden md:flex items-center flex-1 justify-center gap-8">
           <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
 
           <div ref={dropdownRef} className="relative">
@@ -63,8 +63,11 @@ const Navbar = () => {
             )}
           </div>
 
+          <Link to="/chatbot" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Chatbot</Link>
           <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</Link>
+        </div>
 
+        <div className="hidden md:block flex-shrink-0">
           <a
             href="https://discord.gg/F8PKTvvMUZ"
             target="_blank"
@@ -92,6 +95,10 @@ const Navbar = () => {
                 {s.name}
               </Link>
             ))}
+            <Link to="/chatbot" className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
+              <MessageCircle className="w-4 h-4 text-primary" />
+              Chatbot
+            </Link>
             <Link to="/support" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Support</Link>
             <a
               href="https://discord.gg/F8PKTvvMUZ"
