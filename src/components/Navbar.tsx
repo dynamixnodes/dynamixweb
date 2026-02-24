@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X, Cloud, Gamepad2, Bot, Globe, MessageCircle } from "lucide-react";
+import { ChevronDown, Menu, X, Server, Gamepad2, Bot, Globe, MessageCircle } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
 
 const services = [
-  { name: "VPS Hosting", icon: Cloud, path: "/vps-hosting" },
+  { name: "VPS Hosting", icon: Server, path: "/vps-hosting" },
   { name: "Game Hosting", icon: Gamepad2, path: "/game-hosting" },
   { name: "Bot Hosting", icon: Bot, path: "/bot-hosting" },
   { name: "Domain Hosting", icon: Globe, path: "/domain-hosting" },
