@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X, Server, Gamepad2, Bot, MessageCircle, UserPlus } from "lucide-react";
+import { ChevronDown, Menu, X, Server, Gamepad2, Bot, MessageCircle } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
-import AuthModal from "@/components/AuthModal";
 
 const services = [
   { name: "VPS Hosting", icon: Server, path: "/vps-hosting" },
@@ -13,7 +12,6 @@ const services = [
 const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [authOpen, setAuthOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,109 +25,92 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
-        <div className="container mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-            <img src={logo} alt="RydenByte" className="w-10 h-10 rounded-lg" />
-            <span className="text-xl font-bold tracking-tight">
-              <span className="gradient-text">Ryden</span>Byte
-            </span>
-          </Link>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+      <div className="container mx-auto px-6 py-3 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3 flex-shrink-0">
+          <img src={logo} alt="RydenByte" className="w-10 h-10 rounded-lg" />
+          <span className="text-xl font-bold tracking-tight">
+            <span className="gradient-text">Ryden</span>Byte
+          </span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center flex-1 justify-center gap-8">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center flex-1 justify-center gap-8">
+          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
 
-            <div ref={dropdownRef} className="relative">
-              <button
-                onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Services <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
-              </button>
-              {servicesOpen && (
-                <div className="absolute top-full mt-2 left-0 w-52 bg-card border border-border rounded-lg py-2 shadow-xl animate-scale-in">
-                  {services.map((s) => (
-                    <Link
-                      key={s.path}
-                      to={s.path}
-                      className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-                      onClick={() => setServicesOpen(false)}
-                    >
-                      <s.icon className="w-4 h-4 text-primary" />
-                      {s.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <Link to="/chatbot" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Chatbot</Link>
-            <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</Link>
+          <div ref={dropdownRef} className="relative">
+            <button
+              onClick={() => setServicesOpen(!servicesOpen)}
+              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Services <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute top-full mt-2 left-0 w-52 bg-card border border-border rounded-lg py-2 shadow-xl animate-scale-in">
+                {services.map((s) => (
+                  <Link
+                    key={s.path}
+                    to={s.path}
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    onClick={() => setServicesOpen(false)}
+                  >
+                    <s.icon className="w-4 h-4 text-primary" />
+                    {s.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-            <button
-              onClick={() => setAuthOpen(true)}
-              className="w-10 h-10 rounded-full gradient-border flex items-center justify-center hover:opacity-90 transition-opacity"
-              title="Register"
-            >
-              <UserPlus className="w-4 h-4 text-primary" />
-            </button>
+          <Link to="/chatbot" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Chatbot</Link>
+          <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</Link>
+        </div>
+
+        <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+          <a
+            href="https://discord.gg/F8PKTvvMUZ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 rounded-lg text-sm font-medium text-primary border border-primary/40 hover:gradient-primary hover:text-primary-foreground transition-all duration-300"
+          >
+            Join Discord
+          </a>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      {mobileOpen && (
+        <div className="md:hidden bg-card border-t border-border animate-fade-in">
+          <div className="px-6 py-4 flex flex-col gap-4">
+            <Link to="/" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
+            {services.map((s) => (
+              <Link key={s.path} to={s.path} className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
+                <s.icon className="w-4 h-4 text-primary" />
+                {s.name}
+              </Link>
+            ))}
+            <Link to="/chatbot" className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
+              <MessageCircle className="w-4 h-4 text-primary" />
+              Chatbot
+            </Link>
+            <Link to="/support" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Support</Link>
             <a
               href="https://discord.gg/F8PKTvvMUZ"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-lg text-sm font-medium gradient-border hover:opacity-90 transition-opacity"
+              className="px-5 py-2 rounded-lg text-sm font-medium text-primary border border-primary/40 text-center"
             >
               Join Discord
             </a>
           </div>
-
-          {/* Mobile Toggle */}
-          <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
-
-        {/* Mobile Nav */}
-        {mobileOpen && (
-          <div className="md:hidden bg-card border-t border-border animate-fade-in">
-            <div className="px-6 py-4 flex flex-col gap-4">
-              <Link to="/" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
-              {services.map((s) => (
-                <Link key={s.path} to={s.path} className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
-                  <s.icon className="w-4 h-4 text-primary" />
-                  {s.name}
-                </Link>
-              ))}
-              <Link to="/chatbot" className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
-                <MessageCircle className="w-4 h-4 text-primary" />
-                Chatbot
-              </Link>
-              <Link to="/support" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Support</Link>
-              <button
-                onClick={() => { setMobileOpen(false); setAuthOpen(true); }}
-                className="px-5 py-2 rounded-lg text-sm font-medium gradient-primary text-primary-foreground text-center"
-              >
-                Register / Login
-              </button>
-              <a
-                href="https://discord.gg/F8PKTvvMUZ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2 rounded-lg text-sm font-medium gradient-border text-center"
-              >
-                Join Discord
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      <AuthModal open={authOpen} onOpenChange={setAuthOpen} />
-    </>
+      )}
+    </nav>
   );
 };
 
