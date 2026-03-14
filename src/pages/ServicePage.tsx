@@ -28,14 +28,6 @@ const plansData: Record<string, { title: string; plans: { name: string; price: s
       { name: "Business", price: "$9.99/mo", features: ["2GB RAM", "10 Bots", "Auto Restart", "Custom Domain", "Priority Support", "API Access"] },
     ],
   },
-  "domain-hosting": {
-    title: "Domain Hosting",
-    plans: [
-      { name: ".com", price: "$9.99/yr", features: ["Free SSL", "DNS Management", "WHOIS Privacy", "Email Forwarding"] },
-      { name: ".dev", price: "$12.99/yr", features: ["Free SSL", "DNS Management", "WHOIS Privacy", "Email Forwarding", "DNSSEC"], popular: true },
-      { name: ".io", price: "$29.99/yr", features: ["Free SSL", "DNS Management", "WHOIS Privacy", "Email Forwarding", "DNSSEC", "Premium DNS"] },
-    ],
-  },
 };
 
 const ServicePage = () => {
@@ -58,7 +50,7 @@ const ServicePage = () => {
             {data.plans.map((plan, i) => (
               <div
                 key={i}
-                className={`relative p-8 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(253_100%_66%/0.15)] ${
+                className={`relative p-8 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(25_95%_53%/0.15)] ${
                   plan.popular ? "border-primary/50 glow-effect" : "border-border"
                 }`}
               >

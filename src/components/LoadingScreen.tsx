@@ -22,7 +22,6 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
     <div className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center gap-6 transition-opacity duration-500"
       style={{ opacity: progress >= 100 ? 0 : 1 }}
     >
-      {/* Sparkles */}
       {Array.from({ length: 8 }).map((_, i) => (
         <div
           key={i}
@@ -35,21 +34,17 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
         />
       ))}
 
-      {/* Ambient glow */}
       <div className="absolute w-64 h-64 rounded-full opacity-20 blur-[100px] gradient-primary" />
 
-      <img src={logo} alt="DynamixNodes" className="w-16 h-16 rounded-xl" />
+      <img src={logo} alt="RydenByte" className="w-16 h-16 rounded-xl" />
       <h2 className="text-2xl font-bold">
-        <span className="gradient-text">Dynamix</span> Nodes
+        <span className="gradient-text">Ryden</span>Byte
       </h2>
 
-      {/* Loading bar */}
       <div className="w-64 h-1.5 bg-muted rounded-full overflow-hidden">
         <div
           className="h-full rounded-full transition-all duration-100 ease-out gradient-primary"
-          style={{
-            width: `${Math.min(progress, 100)}%`,
-          }}
+          style={{ width: `${Math.min(progress, 100)}%` }}
         />
       </div>
       <p className="text-sm text-muted-foreground">Loading... {Math.min(Math.floor(progress), 100)}%</p>

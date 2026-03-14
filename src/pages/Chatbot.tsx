@@ -94,25 +94,25 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
       <Navbar />
-      <section className="flex-1 flex flex-col pt-28 pb-8 px-4">
-        <div className="container mx-auto max-w-3xl flex flex-col flex-1">
+      <section className="flex-1 flex flex-col pt-28 pb-8 px-4 overflow-hidden">
+        <div className="container mx-auto max-w-3xl flex flex-col flex-1 min-h-0">
           {/* Title */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6 flex-shrink-0">
             <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
               Meet Our Chatbot,
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold gradient-text mt-1">Dynamix AI</h2>
+            <h2 className="text-3xl md:text-5xl font-bold gradient-text mt-1">Ryden AI</h2>
           </div>
 
           {/* Chat box */}
-          <div className="flex-1 flex flex-col bg-card border border-border rounded-2xl overflow-hidden min-h-[400px] max-h-[60vh]">
+          <div className="flex-1 flex flex-col bg-card border border-border rounded-2xl overflow-hidden min-h-0">
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.length === 0 && (
                 <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
-                  Ask me anything about hosting, development, or domains! 🚀
+                  Ask me anything about hosting, development, or servers! 🚀
                 </div>
               )}
               {messages.map((msg, i) => (
@@ -146,7 +146,7 @@ const Chatbot = () => {
             </div>
 
             {/* Input */}
-            <div className="border-t border-border p-4">
+            <div className="border-t border-border p-4 flex-shrink-0">
               <div className="flex items-center gap-3">
                 <input
                   type="text"
@@ -168,7 +168,6 @@ const Chatbot = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
