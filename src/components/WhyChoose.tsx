@@ -14,7 +14,7 @@ const WhyChoose = () => {
     <section className="py-24 px-6">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Why Choose <span className="gradient-text">Dynamix Nodes</span>?
+          Why Choose <span className="gradient-text">RydenByte</span>?
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
           Enterprise-grade features that power your success
@@ -24,7 +24,7 @@ const WhyChoose = () => {
           {features.map((f, i) => (
             <div
               key={i}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_hsl(253_100%_66%/0.15)]"
+              className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_hsl(25_95%_53%/0.15)]"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
