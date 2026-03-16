@@ -139,7 +139,7 @@
 
   .circuit-path {
     position: absolute;
-    border: 1px solid hsl(20 90% 42% / 0.4);
+    border: 1px solid hsl(25 95% 50% / 0.4);
     border-radius: 0;
   }
 }
