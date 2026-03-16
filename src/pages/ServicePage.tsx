@@ -89,12 +89,10 @@ const ServicePage = () => {
         <div className="container mx-auto relative z-10">
           {/* Circular icon box + titles */}
           <div className="text-center mb-16">
-            <div className="w-24 h-24 rounded-full gradient-primary flex items-center justify-center mx-auto mb-8 glow-effect">
-              <IconComp className="w-12 h-12 text-primary-foreground" />
-            </div>
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="gradient-text text-sm font-semibold tracking-widest uppercase">
-                {service?.replace("-", " ")} Hosting
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 mb-8 glow-effect">
+              <IconComp className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium gradient-text">
+                {service?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())} Hosting
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
