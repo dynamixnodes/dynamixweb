@@ -14,7 +14,7 @@ const HeroSection = () => {
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          Next-Gen <span className="gradient-text">IT</span> Labs
+          Next-<span className="gradient-text">Gen</span> <span className="gradient-text">IT</span> Labs
         </h1>
 
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 text-center">
