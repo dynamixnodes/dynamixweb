@@ -100,7 +100,7 @@
     position: absolute;
     width: 4px;
     height: 4px;
-    background: hsl(20 90% 55%);
+    background: hsl(25 95% 55%);
     border-radius: 50%;
     animation: sparkle 3s ease-in-out infinite;
   }
