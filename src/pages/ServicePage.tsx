@@ -142,11 +142,15 @@ const ServicePage = () => {
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full py-3.5 rounded-lg font-medium transition-opacity hover:opacity-90 ${
+                <a
+                  href="https://discord.com/channels/1478422228323532883/1478432871889895504"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full py-3.5 rounded-lg font-medium text-center transition-opacity hover:opacity-90 ${
                   plan.popular || plan.tag ? "gradient-primary text-primary-foreground" : "bg-muted text-foreground"
                 }`}>
-                  Get Started
-                </button>
+                  Order Now
+                </a>
               </div>
             ))}
           </div>
