@@ -160,8 +160,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(20 90% 42% / 0.3); }
-  50% { box-shadow: 0 0 40px hsl(20 90% 42% / 0.6); }
+  0%, 100% { box-shadow: 0 0 20px hsl(25 95% 50% / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(25 95% 50% / 0.6); }
 }
 
 @keyframes circuit-flow-h {
