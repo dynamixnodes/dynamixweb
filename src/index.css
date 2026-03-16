@@ -89,7 +89,7 @@
   }
 
   .glow-effect {
-    box-shadow: 0 0 30px hsl(20 90% 42% / 0.3), 0 0 60px hsl(25 85% 38% / 0.15);
+    box-shadow: 0 0 30px hsl(25 95% 50% / 0.3), 0 0 60px hsl(28 90% 45% / 0.15);
   }
 
   .float-animation {
