@@ -108,7 +108,7 @@ const ServicePage = () => {
           {/* Plans */}
           <div className={`grid gap-8 max-w-6xl mx-auto ${isVps ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 'grid-cols-1 md:grid-cols-3'}`}>
             {isVps && (
-              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 float-animation">
+              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 float-animation select-none" draggable={false}>
                 {/* Orange circle with Zap icon */}
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-7 h-7 text-primary-foreground" />
@@ -121,6 +121,7 @@ const ServicePage = () => {
                     { label: "Performance", value: 100 },
                     { label: "Speed", value: 100 },
                     { label: "Power", value: 100 },
+                    { label: "Uptime", value: 100 },
                   ].map((stat, idx) => (
                     <div key={idx}>
                       <div className="flex justify-between items-center mb-2">
@@ -196,7 +197,7 @@ const ServicePage = () => {
           {/* Bottom feature boxes */}
           <div className="mt-24 max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              <span className="text-foreground">Why Choose Our </span>
+              <span className="text-foreground">Features Of Our </span>
               <span className="gradient-text">{service?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())}</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
