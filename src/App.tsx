@@ -25,7 +25,9 @@ const App = () => (
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/:service" element={<ServicePage />} />
+          <Route path="/vps-hosting" element={<ServicePage />} />
+          <Route path="/game-hosting" element={<ServicePage />} />
+          <Route path="/bot-hosting" element={<ServicePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
