@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
-import { Check, Server, Gamepad2, Bot, Shield, Cpu, HardDrive, Zap, Globe, Clock, MemoryStick, MonitorDot } from "lucide-react";
+import { Check, Server, Gamepad2, Bot, Shield, Cpu, HardDrive, Zap, Globe, Clock, ArrowRight } from "lucide-react";
 
 const serviceData: Record<string, {
   icon: any;
