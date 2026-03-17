@@ -92,7 +92,7 @@ const ServicePage = () => {
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 mb-8 glow-effect">
               <IconComp className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium gradient-text">
-                {service?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())} Hosting
+                {service?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())}
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
