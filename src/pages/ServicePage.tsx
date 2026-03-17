@@ -121,6 +121,7 @@ const ServicePage = () => {
                     { label: "Performance", value: 100 },
                     { label: "Speed", value: 100 },
                     { label: "Power", value: 100 },
+                    { label: "Uptime", value: 100 },
                   ].map((stat, idx) => (
                     <div key={idx}>
                       <div className="flex justify-between items-center mb-2">
