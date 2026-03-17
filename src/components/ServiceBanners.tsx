@@ -7,7 +7,7 @@ const services = [
     title: "VPS Hosting",
     desc: "High-performance virtual private servers with dedicated resources and full root access.",
     path: "/vps-hosting",
-    price: "Starting at ₹300/mo",
+    price: "Starting at ₹440/mo",
     features: ["AMD EPYC CPUs", "NVMe SSD Storage", "DDoS Protection", "Full Root Access"],
   },
   {
