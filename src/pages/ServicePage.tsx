@@ -107,7 +107,7 @@ const ServicePage = () => {
           {/* Plans */}
           <div className={`grid gap-8 max-w-6xl mx-auto ${isVps ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 'grid-cols-1 md:grid-cols-3'}`}>
             {isVps && (
-              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8">
+              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 float-animation">
                 {/* Orange circle with Zap icon */}
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-7 h-7 text-primary-foreground" />
@@ -119,22 +119,37 @@ const ServicePage = () => {
                   {[
                     { label: "Performance", value: 100 },
                     { label: "Speed", value: 100 },
-                    { label: "Support", value: 100 },
+                    { label: "Power", value: 100 },
                   ].map((stat, idx) => (
                     <div key={idx}>
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-sm font-medium text-muted-foreground">{stat.label}</span>
                         <span className="text-sm font-bold gradient-text">{stat.value}%</span>
                       </div>
-                      <div className="w-full h-2.5 rounded-full bg-muted overflow-hidden">
+                      <div className="relative w-full h-2.5 rounded-full bg-muted">
                         <div
                           className="h-full rounded-full gradient-primary"
                           style={{ width: `${stat.value}%` }}
+                        />
+                        {/* White dot at the end */}
+                        <div
+                          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-foreground border-2 border-primary shadow-[0_0_8px_hsl(25_95%_50%/0.5)]"
+                          style={{ right: `${100 - stat.value}%`, transform: 'translate(50%, -50%)' }}
                         />
                       </div>
                     </div>
                   ))}
                 </div>
+
+                {/* Take Trial button */}
+                <a
+                  href="https://discord.gg/2u8888wRur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-lg font-medium gradient-primary text-primary-foreground hover:opacity-90 transition-opacity mt-8"
+                >
+                  Take Trial <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             )}
             {data.plans.map((plan, i) => (
