@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
@@ -76,7 +76,8 @@ const serviceData: Record<string, {
 };
 
 const ServicePage = () => {
-  const { service } = useParams();
+  const location = useLocation();
+  const service = location.pathname.replace("/", "");
   const data = serviceData[service || ""] || serviceData["vps-hosting"];
   const IconComp = data.icon;
   const isVps = service === "vps-hosting";
