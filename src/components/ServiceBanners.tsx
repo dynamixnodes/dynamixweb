@@ -7,7 +7,7 @@ const services = [
     title: "VPS Hosting",
     desc: "High-performance virtual private servers with dedicated resources and full root access.",
     path: "/vps-hosting",
-    price: "Starting at ₹300/mo",
+    price: "Starting at ₹440/mo",
     features: ["AMD EPYC CPUs", "NVMe SSD Storage", "DDoS Protection", "Full Root Access"],
   },
   {
@@ -75,14 +75,12 @@ const ServiceBanners = () => {
 
               <p className="text-xl font-semibold gradient-text mb-6">{s.price}</p>
 
-              <a
-                href="https://discord.com/channels/1478422228323532883/1478432871889895504"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to={s.path}
                 className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-sm font-medium gradient-primary text-primary-foreground hover:opacity-90 transition-opacity"
               >
-                Order Now <ArrowRight className="w-4 h-4" />
-              </a>
+                View Plans <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           ))}
         </div>

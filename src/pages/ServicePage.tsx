@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
-import { Check, Server, Gamepad2, Bot, Shield, Cpu, HardDrive, Zap, Globe, Clock, MemoryStick, MonitorDot } from "lucide-react";
+import { Check, Server, Gamepad2, Bot, Shield, Cpu, HardDrive, Zap, Globe, Clock, ArrowRight } from "lucide-react";
 
 const serviceData: Record<string, {
   icon: any;
@@ -19,9 +19,9 @@ const serviceData: Record<string, {
     description: "Enterprise-grade virtual private servers powered by AMD EPYC processors with NVMe storage and advanced DDoS protection for maximum performance.",
     plans: [
       {
-        name: "Performance",
+        name: "Ryden VPS",
         tag: "Performance",
-        price: "₹300/mo",
+        price: "₹440/mo",
         features: ["8GB RAM", "2 vCore", "20GB NVMe SSD", "AMD EPYC CPU", "DDoS Protection", "Full Root Access"],
         popular: true,
       },
@@ -92,7 +92,7 @@ const ServicePage = () => {
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 mb-8 glow-effect">
               <IconComp className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium gradient-text">
-                {service?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())} Hosting
+                {service?.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase())}
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
@@ -107,11 +107,33 @@ const ServicePage = () => {
           {/* Plans */}
           <div className={`grid gap-8 max-w-6xl mx-auto ${isVps ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 'grid-cols-1 md:grid-cols-3'}`}>
             {isVps && (
-              <div className="relative rounded-2xl bg-card border border-border overflow-hidden flex items-center justify-center p-8">
-                <div className="text-center">
-                  <MonitorDot className="w-24 h-24 text-muted-foreground/30 mx-auto mb-4" />
-                  <p className="text-muted-foreground text-sm">Windows & Linux Supported</p>
-                  <p className="text-xs text-muted-foreground/60 mt-2">Deploy your preferred OS in seconds</p>
+              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8">
+                {/* Orange circle with Zap icon */}
+                <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
+                  <Zap className="w-7 h-7 text-primary-foreground" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center mb-8">Stats Overview</h3>
+                
+                {/* Progress bars */}
+                <div className="space-y-6">
+                  {[
+                    { label: "Performance", value: 100 },
+                    { label: "Speed", value: 100 },
+                    { label: "Support", value: 100 },
+                  ].map((stat, idx) => (
+                    <div key={idx}>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-medium text-muted-foreground">{stat.label}</span>
+                        <span className="text-sm font-bold gradient-text">{stat.value}%</span>
+                      </div>
+                      <div className="w-full h-2.5 rounded-full bg-muted overflow-hidden">
+                        <div
+                          className="h-full rounded-full gradient-primary"
+                          style={{ width: `${stat.value}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -146,10 +168,10 @@ const ServicePage = () => {
                   href="https://discord.com/channels/1478422228323532883/1478432871889895504"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block w-full py-3.5 rounded-lg font-medium text-center transition-opacity hover:opacity-90 ${
+                  className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-lg font-medium text-center transition-opacity hover:opacity-90 ${
                   plan.popular || plan.tag ? "gradient-primary text-primary-foreground" : "bg-muted text-foreground"
                 }`}>
-                  Order Now
+                  Order Now <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             ))}
