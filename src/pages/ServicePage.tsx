@@ -76,7 +76,8 @@ const serviceData: Record<string, {
 };
 
 const ServicePage = () => {
-  const { service } = useParams();
+  const location = useLocation();
+  const service = location.pathname.replace("/", "");
   const data = serviceData[service || ""] || serviceData["vps-hosting"];
   const IconComp = data.icon;
   const isVps = service === "vps-hosting";
