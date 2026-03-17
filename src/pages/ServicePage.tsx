@@ -146,10 +146,10 @@ const ServicePage = () => {
                   href="https://discord.com/channels/1478422228323532883/1478432871889895504"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block w-full py-3.5 rounded-lg font-medium text-center transition-opacity hover:opacity-90 ${
+                  className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-lg font-medium text-center transition-opacity hover:opacity-90 ${
                   plan.popular || plan.tag ? "gradient-primary text-primary-foreground" : "bg-muted text-foreground"
                 }`}>
-                  Order Now
+                  Order Now <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             ))}
