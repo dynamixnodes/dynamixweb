@@ -19,9 +19,9 @@ const serviceData: Record<string, {
     description: "Enterprise-grade virtual private servers powered by AMD EPYC processors with NVMe storage and advanced DDoS protection for maximum performance.",
     plans: [
       {
-        name: "Performance",
+        name: "Ryden VPS",
         tag: "Performance",
-        price: "₹300/mo",
+        price: "₹440/mo",
         features: ["8GB RAM", "2 vCore", "20GB NVMe SSD", "AMD EPYC CPU", "DDoS Protection", "Full Root Access"],
         popular: true,
       },
