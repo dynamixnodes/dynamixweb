@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Server, Gamepad2, Bot, Shield, Cpu, HardDrive, Zap, Clock, Globe } from "lucide-react";
+import { ArrowRight, Server, Gamepad2, Bot, Zap } from "lucide-react";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const services = [
   {
@@ -7,7 +8,7 @@ const services = [
     title: "VPS Hosting",
     desc: "High-performance virtual private servers with dedicated resources and full root access.",
     path: "/vps-hosting",
-    price: "Starting at ₹440/mo",
+    priceINR: 440,
     features: ["AMD EPYC CPUs", "NVMe SSD Storage", "DDoS Protection", "Full Root Access"],
   },
   {
@@ -15,21 +16,23 @@ const services = [
     title: "Game Hosting",
     desc: "Optimized game servers with one-click installs, mod support, and ultra-low latency.",
     path: "/game-hosting",
-    price: "Starting at ₹250/mo",
+    priceINR: 35,
     popular: true,
-    features: ["One-Click Installs", "Mod Support", "Ultra-Low Latency", "Auto Backups"],
+    features: ["One-Click Installs", "Mod Support", "Ultra-Low Latency", "24/7 Uptime"],
   },
   {
     icon: Bot,
     title: "Bot Hosting",
     desc: "Always-on bot hosting with guaranteed uptime, perfect for Discord bots and automation.",
     path: "/bot-hosting",
-    price: "Starting at ₹150/mo",
+    priceINR: 150,
     features: ["99.9% Uptime", "Auto Restart", "Custom Domain", "24/7 Monitoring"],
   },
 ];
 
 const ServiceBanners = () => {
+  const { formatPrice } = useCurrency();
+
   return (
     <section id="services" className="py-24 px-6">
       <div className="container mx-auto">
@@ -63,7 +66,6 @@ const ServiceBanners = () => {
               <h3 className="text-2xl font-bold mb-3">{s.title}</h3>
               <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
 
-              {/* Features list */}
               <ul className="space-y-2.5 mb-6">
                 {s.features.map((feat, j) => (
                   <li key={j} className="flex items-center gap-2.5 text-sm text-muted-foreground">
@@ -73,7 +75,7 @@ const ServiceBanners = () => {
                 ))}
               </ul>
 
-              <p className="text-xl font-semibold gradient-text mb-6">{s.price}</p>
+              <p className="text-xl font-semibold gradient-text mb-6">Starting at {formatPrice(s.priceINR)}/mo</p>
 
               <Link
                 to={s.path}

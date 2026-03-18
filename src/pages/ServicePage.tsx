@@ -2,14 +2,16 @@ import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
+import GameHostingContent from "@/components/GameHostingContent";
 import { Check, Server, Gamepad2, Bot, Shield, Cpu, HardDrive, Zap, Globe, Clock, ArrowRight } from "lucide-react";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const serviceData: Record<string, {
   icon: any;
   titleWhite: string;
   titleOrange: string;
   description: string;
-  plans: { name: string; tag?: string; price: string; features: string[]; popular?: boolean }[];
+  plans: { name: string; tag?: string; priceINR: number; features: string[]; popular?: boolean }[];
   bottomFeatures: { icon: any; title: string; desc: string }[];
 }> = {
   "vps-hosting": {
@@ -21,7 +23,7 @@ const serviceData: Record<string, {
       {
         name: "Ryden VPS",
         tag: "Performance",
-        price: "₹440/mo",
+        priceINR: 440,
         features: ["8GB RAM", "2 vCore", "20GB NVMe SSD", "AMD EPYC CPU", "DDoS Protection", "Full Root Access"],
         popular: true,
       },
@@ -35,34 +37,15 @@ const serviceData: Record<string, {
       { icon: Zap, title: "Instant Deployment", desc: "Get your server up and running in seconds" },
     ],
   },
-  "game-hosting": {
-    icon: Gamepad2,
-    titleWhite: "ADVANCED",
-    titleOrange: "GAME SERVER",
-    description: "Optimized game servers with one-click installs, full mod support, and ultra-low latency for the best gaming experience.",
-    plans: [
-      { name: "Basic", price: "₹250/mo", features: ["2GB RAM", "Mod Support", "Auto Backups", "DDoS Protection"] },
-      { name: "Standard", price: "₹500/mo", features: ["4GB RAM", "Mod Support", "Auto Backups", "DDoS Protection", "Priority Queue"], popular: true },
-      { name: "Ultimate", price: "₹1,000/mo", features: ["8GB RAM", "Unlimited Mods", "Auto Backups", "DDoS Protection", "Priority Queue", "Dedicated IP"] },
-    ],
-    bottomFeatures: [
-      { icon: Zap, title: "Ultra-Low Latency", desc: "Optimized network routes for lag-free gaming" },
-      { icon: Shield, title: "DDoS Protection", desc: "Keep your server online during attacks" },
-      { icon: HardDrive, title: "Auto Backups", desc: "Automatic world saves and easy restoration" },
-      { icon: Cpu, title: "Mod Support", desc: "Full support for plugins, mods, and custom configs" },
-      { icon: Globe, title: "One-Click Install", desc: "Deploy popular games instantly with templates" },
-      { icon: Clock, title: "24/7 Monitoring", desc: "Automatic restart and health monitoring" },
-    ],
-  },
   "bot-hosting": {
     icon: Bot,
     titleWhite: "FUTURISTIC",
     titleOrange: "BOT HOSTING",
     description: "Always-on bot hosting with guaranteed uptime, auto-restart capabilities, and custom domain support for Discord bots and automation.",
     plans: [
-      { name: "Hobby", price: "₹150/mo", features: ["512MB RAM", "1 Bot", "Auto Restart", "99.9% Uptime"] },
-      { name: "Developer", price: "₹400/mo", features: ["1GB RAM", "3 Bots", "Auto Restart", "Custom Domain", "Priority Support"], popular: true },
-      { name: "Business", price: "₹800/mo", features: ["2GB RAM", "10 Bots", "Auto Restart", "Custom Domain", "Priority Support", "API Access"] },
+      { name: "Hobby", priceINR: 150, features: ["512MB RAM", "1 Bot", "Auto Restart", "99.9% Uptime"] },
+      { name: "Developer", priceINR: 400, features: ["1GB RAM", "3 Bots", "Auto Restart", "Custom Domain", "Priority Support"], popular: true },
+      { name: "Business", priceINR: 800, features: ["2GB RAM", "10 Bots", "Auto Restart", "Custom Domain", "Priority Support", "API Access"] },
     ],
     bottomFeatures: [
       { icon: Clock, title: "99.9% Uptime", desc: "Your bots stay online around the clock" },
@@ -75,9 +58,77 @@ const serviceData: Record<string, {
   },
 };
 
+const gameHostingMeta = {
+  icon: Gamepad2,
+  titleWhite: "ADVANCED",
+  titleOrange: "GAME SERVER",
+  description: "Optimized game servers with one-click installs, full mod support, and ultra-low latency for the best gaming experience.",
+  bottomFeatures: [
+    { icon: Zap, title: "Ultra-Low Latency", desc: "Optimized network routes for lag-free gaming" },
+    { icon: Shield, title: "DDoS Protection", desc: "Keep your server online during attacks" },
+    { icon: HardDrive, title: "NVMe Storage", desc: "High-speed storage for fast world loading" },
+    { icon: Cpu, title: "Mod Support", desc: "Full support for plugins, mods, and custom configs" },
+    { icon: Globe, title: "One-Click Install", desc: "Deploy popular games instantly with templates" },
+    { icon: Clock, title: "24/7 Monitoring", desc: "Automatic restart and health monitoring" },
+  ],
+};
+
 const ServicePage = () => {
   const location = useLocation();
   const service = location.pathname.replace("/", "");
+  const isGameHosting = service === "game-hosting";
+  const { formatPrice } = useCurrency();
+
+  if (isGameHosting) {
+    const meta = gameHostingMeta;
+    const IconComp = meta.icon;
+    return (
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+          <CircuitBackground />
+          <div className="container mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 mb-8 glow-effect">
+                <IconComp className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium gradient-text">Game Hosting</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
+                <span className="text-foreground">{meta.titleWhite}</span>
+              </h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                <span className="gradient-text">{meta.titleOrange}</span>
+              </h1>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{meta.description}</p>
+            </div>
+
+            <GameHostingContent />
+
+            {/* Bottom feature boxes */}
+            <div className="mt-24 max-w-6xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
+                <span className="text-foreground">Features Of Our </span>
+                <span className="gradient-text">Game Hosting</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {meta.bottomFeatures.map((feat, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group">
+                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <feat.icon className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2">{feat.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{feat.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </div>
+    );
+  }
+
   const data = serviceData[service || ""] || serviceData["vps-hosting"];
   const IconComp = data.icon;
   const isVps = service === "vps-hosting";
@@ -88,7 +139,6 @@ const ServicePage = () => {
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
         <CircuitBackground />
         <div className="container mx-auto relative z-10">
-          {/* Circular icon box + titles */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-primary/30 mb-8 glow-effect">
               <IconComp className="w-4 h-4 text-primary" />
@@ -109,13 +159,10 @@ const ServicePage = () => {
           <div className={`grid gap-8 max-w-6xl mx-auto ${isVps ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 'grid-cols-1 md:grid-cols-3'}`}>
             {isVps && (
               <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 float-animation select-none" draggable={false}>
-                {/* Orange circle with Zap icon */}
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-7 h-7 text-primary-foreground" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center mb-8">Stats Overview</h3>
-                
-                {/* Progress bars */}
                 <div className="space-y-6">
                   {[
                     { label: "Performance", value: 100 },
@@ -129,11 +176,7 @@ const ServicePage = () => {
                         <span className="text-sm font-bold gradient-text">{stat.value}%</span>
                       </div>
                       <div className="relative w-full h-2.5 rounded-full bg-muted">
-                        <div
-                          className="h-full rounded-full gradient-primary"
-                          style={{ width: `${stat.value}%` }}
-                        />
-                        {/* White dot at the end */}
+                        <div className="h-full rounded-full gradient-primary" style={{ width: `${stat.value}%` }} />
                         <div
                           className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-foreground border-2 border-primary shadow-[0_0_8px_hsl(25_95%_50%/0.5)]"
                           style={{ right: `${100 - stat.value}%`, transform: 'translate(50%, -50%)' }}
@@ -142,8 +185,6 @@ const ServicePage = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* Take Trial button */}
                 <a
                   href="https://discord.gg/2u8888wRur"
                   target="_blank"
@@ -172,7 +213,7 @@ const ServicePage = () => {
                   </div>
                 )}
                 <h3 className="text-2xl font-bold mb-3">{plan.name}</h3>
-                <p className="text-4xl font-bold gradient-text mb-8">{plan.price}</p>
+                <p className="text-4xl font-bold gradient-text mb-8">{formatPrice(plan.priceINR)}<span className="text-lg text-muted-foreground font-normal">/mo</span></p>
                 <ul className="space-y-3.5 mb-10">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-center gap-3 text-sm text-muted-foreground">
@@ -186,8 +227,9 @@ const ServicePage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center justify-center gap-2 w-full py-3.5 rounded-lg font-medium text-center transition-opacity hover:opacity-90 ${
-                  plan.popular || plan.tag ? "gradient-primary text-primary-foreground" : "bg-muted text-foreground"
-                }`}>
+                    plan.popular || plan.tag ? "gradient-primary text-primary-foreground" : "bg-muted text-foreground"
+                  }`}
+                >
                   Order Now <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

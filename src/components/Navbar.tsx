@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X, Server, Gamepad2, Bot, MessageCircle } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
+import { useCurrency, CurrencyCode } from "@/contexts/CurrencyContext";
 
 const services = [
   { name: "VPS Hosting", icon: Server, path: "/vps-hosting" },
@@ -9,15 +10,23 @@ const services = [
   { name: "Bot Hosting", icon: Bot, path: "/bot-hosting" },
 ];
 
+const currencies: CurrencyCode[] = ["INR", "USD", "NPR", "BDT", "PKR", "EUR"];
+
 const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [currencyOpen, setCurrencyOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const currencyRef = useRef<HTMLDivElement>(null);
+  const { currency, setCurrency } = useCurrency();
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
+      }
+      if (currencyRef.current && !currencyRef.current.contains(e.target as Node)) {
+        setCurrencyOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -67,6 +76,31 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+          {/* Currency Selector */}
+          <div ref={currencyRef} className="relative">
+            <button
+              onClick={() => setCurrencyOpen(!currencyOpen)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium text-primary border border-primary/40 hover:gradient-primary hover:text-primary-foreground transition-all duration-300"
+            >
+              {currency} <ChevronDown className={`w-3.5 h-3.5 transition-transform ${currencyOpen ? "rotate-180" : ""}`} />
+            </button>
+            {currencyOpen && (
+              <div className="absolute top-full mt-2 right-0 w-32 bg-card border border-border rounded-lg py-2 shadow-xl animate-scale-in">
+                {currencies.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => { setCurrency(c); setCurrencyOpen(false); }}
+                    className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                      c === currency ? "text-primary font-semibold bg-muted" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
           <a
             href="https://discord.gg/F8PKTvvMUZ"
             target="_blank"
@@ -99,6 +133,23 @@ const Navbar = () => {
               Chatbot
             </Link>
             <Link to="/support" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Support</Link>
+            
+            {/* Mobile Currency */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-sm text-muted-foreground">Currency:</span>
+              {currencies.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setCurrency(c)}
+                  className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
+                    c === currency ? "gradient-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+
             <a
               href="https://discord.gg/F8PKTvvMUZ"
               target="_blank"
