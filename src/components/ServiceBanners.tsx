@@ -25,8 +25,8 @@ const services = [
     title: "Bot Hosting",
     desc: "Always-on bot hosting with guaranteed uptime, perfect for Discord bots and automation.",
     path: "/bot-hosting",
-    priceINR: 150,
-    features: ["99.9% Uptime", "Auto Restart", "Custom Domain", "24/7 Monitoring"],
+    priceINR: 15,
+    features: ["99.9% Uptime", "Auto Restart", "DDoS Protection", "24/7 Monitoring"],
   },
 ];
 
