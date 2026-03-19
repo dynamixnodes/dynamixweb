@@ -323,7 +323,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Allocation */}
-          <div className="relative p-6 rounded-2xl bg-card border border-border">
+          <div className="relative p-6 rounded-2xl bg-card border border-border hover-float">
             <div className="absolute -top-3 right-4 px-3 py-1 rounded-full text-xs font-bold gradient-primary text-primary-foreground">
               EXTERNAL
             </div>
