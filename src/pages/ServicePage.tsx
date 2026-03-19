@@ -244,8 +244,8 @@ const ServicePage = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {data.bottomFeatures.map((feat, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group">
-                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group hover:float-animation">
+                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                     <feat.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{feat.title}</h3>
