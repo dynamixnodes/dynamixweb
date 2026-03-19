@@ -112,8 +112,8 @@ const ServicePage = () => {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {meta.bottomFeatures.map((feat, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group">
-                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group hover-float">
+                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                       <feat.icon className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <h3 className="text-lg font-bold mb-2">{feat.title}</h3>
@@ -158,7 +158,7 @@ const ServicePage = () => {
           {/* Plans */}
           <div className={`grid gap-8 max-w-6xl mx-auto ${isVps ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 'grid-cols-1 md:grid-cols-3'}`}>
             {isVps && (
-              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 float-animation select-none" draggable={false}>
+              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 select-none hover-float transition-all duration-300" draggable={false}>
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-7 h-7 text-primary-foreground" />
                 </div>
@@ -244,8 +244,8 @@ const ServicePage = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {data.bottomFeatures.map((feat, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group">
-                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group hover-float">
+                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                     <feat.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{feat.title}</h3>

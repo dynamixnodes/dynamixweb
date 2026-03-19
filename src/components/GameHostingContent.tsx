@@ -5,13 +5,14 @@ import { Slider } from "@/components/ui/slider";
 import { supabase } from "@/integrations/supabase/client";
 
 const minecraftPlans = [
-  { name: "Ryden - Copper", ram: 4, cpu: 1, storage: 8, priceINR: 35 },
-  { name: "Ryden - Iron", ram: 8, cpu: 2, storage: 16, priceINR: 80 },
-  { name: "Ryden - Gold", ram: 12, cpu: 4, storage: 24, priceINR: 175 },
-  { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 32, priceINR: 290 },
-  { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 64, priceINR: 400 },
-  { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 128, priceINR: 760 },
-  { name: "Ryden - Bedrock", ram: Infinity, cpu: Infinity, storage: Infinity, priceINR: 760 },
+  { name: "Ryden - Dirt", ram: 2, cpu: 0.5, storage: 8, priceINR: 20 },
+  { name: "Ryden - Copper", ram: 4, cpu: 1, storage: 16, priceINR: 45 },
+  { name: "Ryden - Iron", ram: 8, cpu: 2, storage: 32, priceINR: 90 },
+  { name: "Ryden - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
+  { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
+  { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
+  { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
+  { name: "Ryden - Bedrock", ram: Infinity, cpu: Infinity, storage: Infinity, priceINR: 5000 },
 ];
 
 const commonFeatures = ["Mod Support", "24/7 Uptime", "Low Latency", "DDoS Protection"];
@@ -105,7 +106,7 @@ const GameHostingContent = () => {
         {minecraftPlans.map((plan, i) => (
           <div
             key={i}
-            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_hsl(25_95%_50%/0.1)]"
+            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(25_95%_50%/0.1)] hover-float"
           >
             <h3 className="text-lg font-bold text-foreground mb-2">{plan.name}</h3>
             <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(plan.priceINR)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
@@ -152,7 +153,7 @@ const GameHostingContent = () => {
       {/* Custom Plan Builder + AI Suggestor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {/* Build Your Custom Plan */}
-        <div className="p-8 rounded-2xl bg-card border border-border">
+        <div className="p-8 rounded-2xl bg-card border border-border hover-float">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground">Build Your Custom Plan</h3>
@@ -193,7 +194,7 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-primary" />
+                <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="6" width="20" height="12" rx="2" /><path d="M6 6V4" /><path d="M10 6V4" /><path d="M14 6V4" /><path d="M18 6V4" /><path d="M6 18v2" /><path d="M10 18v2" /><path d="M14 18v2" /><path d="M18 18v2" /><rect x="6" y="10" width="4" height="4" /></svg>
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>
@@ -254,7 +255,7 @@ const GameHostingContent = () => {
         </div>
 
         {/* AI Suggestor */}
-        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col">
+        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col hover-float">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground">Ryden AI Suggestor</h3>
@@ -304,7 +305,7 @@ const GameHostingContent = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Backup */}
-          <div className="p-6 rounded-2xl bg-card border border-border">
+          <div className="p-6 rounded-2xl bg-card border border-border hover-float">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Archive className="w-5 h-5 text-primary-foreground" />
             </div>
@@ -322,7 +323,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Allocation */}
-          <div className="relative p-6 rounded-2xl bg-card border border-border">
+          <div className="relative p-6 rounded-2xl bg-card border border-border hover-float">
             <div className="absolute -top-3 right-4 px-3 py-1 rounded-full text-xs font-bold gradient-primary text-primary-foreground">
               EXTERNAL
             </div>
@@ -343,7 +344,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Database */}
-          <div className="p-6 rounded-2xl bg-card border border-border">
+          <div className="p-6 rounded-2xl bg-card border border-border hover-float">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Database className="w-5 h-5 text-primary-foreground" />
             </div>
