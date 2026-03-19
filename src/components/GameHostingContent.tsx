@@ -106,7 +106,7 @@ const GameHostingContent = () => {
         {minecraftPlans.map((plan, i) => (
           <div
             key={i}
-            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_30px_hsl(25_95%_50%/0.1)] hover-float"
+            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]"
           >
             <h3 className="text-lg font-bold text-foreground mb-2">{plan.name}</h3>
             <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(plan.priceINR)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
