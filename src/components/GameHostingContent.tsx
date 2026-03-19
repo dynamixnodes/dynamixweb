@@ -344,7 +344,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Database */}
-          <div className="p-6 rounded-2xl bg-card border border-border">
+          <div className="p-6 rounded-2xl bg-card border border-border hover-float">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Database className="w-5 h-5 text-primary-foreground" />
             </div>
