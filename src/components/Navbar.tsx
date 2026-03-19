@@ -71,7 +71,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/chatbot" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Chatbot</Link>
+          <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
           <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</Link>
         </div>
 
