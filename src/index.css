@@ -96,6 +96,10 @@
     animation: float 3s ease-in-out infinite;
   }
 
+  .hover-float:hover {
+    animation: float 3s ease-in-out infinite;
+  }
+
   .sparkle {
     position: absolute;
     width: 4px;
