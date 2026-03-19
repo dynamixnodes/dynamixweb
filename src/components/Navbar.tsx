@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X, Server, Gamepad2, Bot, MessageCircle } from "lucide-react";
+import { ChevronDown, Menu, X, Server, Gamepad2, Bot } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
 import { useCurrency, CurrencyCode } from "@/contexts/CurrencyContext";
 
