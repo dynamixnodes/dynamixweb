@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X, Server, Gamepad2, Bot, MessageCircle } from "lucide-react";
+import { ChevronDown, Menu, X, Server, Gamepad2, Bot } from "lucide-react";
 import logo from "@/assets/dynamixnodes-logo.png";
 import { useCurrency, CurrencyCode } from "@/contexts/CurrencyContext";
 
@@ -71,7 +71,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/chatbot" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Chatbot</Link>
+          <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
           <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</Link>
         </div>
 
@@ -128,10 +128,7 @@ const Navbar = () => {
                 {s.name}
               </Link>
             ))}
-            <Link to="/chatbot" className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
-              <MessageCircle className="w-4 h-4 text-primary" />
-              Chatbot
-            </Link>
+            <Link to="/about" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>About</Link>
             <Link to="/support" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Support</Link>
             
             {/* Mobile Currency */}
