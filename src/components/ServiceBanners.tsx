@@ -16,7 +16,7 @@ const services = [
     title: "Game Hosting",
     desc: "Optimized game servers with one-click installs, mod support, and ultra-low latency.",
     path: "/game-hosting",
-    priceINR: 35,
+    priceINR: 20,
     popular: true,
     features: ["One-Click Installs", "Mod Support", "Ultra-Low Latency", "24/7 Uptime"],
   },
