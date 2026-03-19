@@ -255,7 +255,7 @@ const GameHostingContent = () => {
         </div>
 
         {/* AI Suggestor */}
-        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col">
+        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col hover-float">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground">Ryden AI Suggestor</h3>
