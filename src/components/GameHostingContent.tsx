@@ -195,7 +195,7 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <MemoryStick className="w-4 h-4 text-primary" />
+                <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="6" width="20" height="12" rx="2" /><path d="M6 6V4" /><path d="M10 6V4" /><path d="M14 6V4" /><path d="M18 6V4" /><path d="M6 18v2" /><path d="M10 18v2" /><path d="M14 18v2" /><path d="M18 18v2" /><rect x="6" y="10" width="4" height="4" /></svg>
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>
