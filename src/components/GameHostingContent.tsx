@@ -5,13 +5,14 @@ import { Slider } from "@/components/ui/slider";
 import { supabase } from "@/integrations/supabase/client";
 
 const minecraftPlans = [
-  { name: "Ryden - Copper", ram: 4, cpu: 1, storage: 8, priceINR: 35 },
-  { name: "Ryden - Iron", ram: 8, cpu: 2, storage: 16, priceINR: 80 },
-  { name: "Ryden - Gold", ram: 12, cpu: 4, storage: 24, priceINR: 175 },
-  { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 32, priceINR: 290 },
-  { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 64, priceINR: 400 },
-  { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 128, priceINR: 760 },
-  { name: "Ryden - Bedrock", ram: Infinity, cpu: Infinity, storage: Infinity, priceINR: 760 },
+  { name: "Ryden - Dirt", ram: 2, cpu: 0.5, storage: 8, priceINR: 20 },
+  { name: "Ryden - Copper", ram: 4, cpu: 1, storage: 16, priceINR: 45 },
+  { name: "Ryden - Iron", ram: 8, cpu: 2, storage: 32, priceINR: 90 },
+  { name: "Ryden - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
+  { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
+  { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
+  { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
+  { name: "Ryden - Bedrock", ram: Infinity, cpu: Infinity, storage: Infinity, priceINR: 5000 },
 ];
 
 const commonFeatures = ["Mod Support", "24/7 Uptime", "Low Latency", "DDoS Protection"];
