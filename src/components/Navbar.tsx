@@ -128,10 +128,7 @@ const Navbar = () => {
                 {s.name}
               </Link>
             ))}
-            <Link to="/chatbot" className="flex items-center gap-2 text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>
-              <MessageCircle className="w-4 h-4 text-primary" />
-              Chatbot
-            </Link>
+            <Link to="/about" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>About</Link>
             <Link to="/support" className="text-sm text-muted-foreground" onClick={() => setMobileOpen(false)}>Support</Link>
             
             {/* Mobile Currency */}

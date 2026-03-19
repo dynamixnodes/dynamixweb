@@ -7,10 +7,11 @@ import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import Index from "./pages/Index";
 import Support from "./pages/Support";
 import ServicePage from "./pages/ServicePage";
-import Chatbot from "./pages/Chatbot";
+import About from "./pages/About";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
+import FloatingChat from "./components/FloatingChat";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/support" element={<Support />} />
-            <Route path="/chatbot" element={<Chatbot />} />
+            <Route path="/about" element={<About />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/vps-hosting" element={<ServicePage />} />
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/bot-hosting" element={<ServicePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <FloatingChat />
         </BrowserRouter>
       </CurrencyProvider>
     </TooltipProvider>
