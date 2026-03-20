@@ -15,6 +15,9 @@ const minecraftPlans = [
   { name: "Ryden - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
 ];
 
+// Base plan for custom pricing: 1GB RAM, 0.25 vCore, 4GB Storage = ₹10
+const basePlan = { ram: 1, cpu: 0.25, storage: 4, priceINR: 10 };
+
 const commonFeatures = ["Mod Support", "24/7 Uptime", "Low Latency", "DDoS Protection"];
 
 const cpuSteps = [0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
