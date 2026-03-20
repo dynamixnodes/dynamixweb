@@ -192,9 +192,7 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-primary" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M480 288H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h16v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h16c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm-16 80H48v-32h416v32zM208 176h-64v-64h64v64zm128 0h-64v-64h64v64zM48 208V128c0-17.67 14.33-32 32-32h352c17.67 0 32 14.33 32 32v80H48z"/>
-                </svg>
+                <img src="https://i.postimg.cc/Hs0fGtHq/ram-memory-svgrepo-com.jpg" alt="RAM" className="w-4 h-4" />
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>
@@ -203,7 +201,7 @@ const GameHostingContent = () => {
               value={[ram]}
               onValueChange={(v) => setRam(v[0])}
               min={1}
-              max={128}
+              max={256}
               step={1}
               className="w-full"
             />
