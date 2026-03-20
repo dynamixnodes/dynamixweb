@@ -15,15 +15,19 @@ const minecraftPlans = [
   { name: "Ryden - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
 ];
 
+// Base plan for custom pricing: 1GB RAM, 0.25 vCore, 4GB Storage = ₹10
+const basePlan = { ram: 1, cpu: 0.25, storage: 4, priceINR: 10 };
+
 const commonFeatures = ["Mod Support", "24/7 Uptime", "Low Latency", "DDoS Protection"];
 
 const cpuSteps = [0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
 function estimatePrice(ram: number, cpu: number, storage: number): number {
-  const plans = minecraftPlans;
+  // Include base plan (1GB/0.25vCore/4GB = ₹10) for accurate low-end pricing
+  const allPlans = [basePlan, ...minecraftPlans];
   const score = ram + cpu * 4 + storage * 0.25;
 
-  const planScores = plans.map(p => ({ ...p, score: p.ram + p.cpu * 4 + p.storage * 0.25 }));
+  const planScores = allPlans.map(p => ({ ...p, score: p.ram + p.cpu * 4 + p.storage * 0.25 }));
 
   if (score <= planScores[0].score) return planScores[0].priceINR;
   if (score >= planScores[planScores.length - 1].score) return planScores[planScores.length - 1].priceINR;
@@ -188,9 +192,7 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-primary" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M480 288H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h16v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h16c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm-16 80H48v-32h416v32zM208 176h-64v-64h64v64zm128 0h-64v-64h64v64zM48 208V128c0-17.67 14.33-32 32-32h352c17.67 0 32 14.33 32 32v80H48z"/>
-                </svg>
+                <img src="https://i.postimg.cc/Hs0fGtHq/ram-memory-svgrepo-com.jpg" alt="RAM" className="w-4 h-4" />
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>
@@ -199,7 +201,7 @@ const GameHostingContent = () => {
               value={[ram]}
               onValueChange={(v) => setRam(v[0])}
               min={1}
-              max={128}
+              max={256}
               step={1}
               className="w-full"
             />
