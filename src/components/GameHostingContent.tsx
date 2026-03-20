@@ -12,23 +12,24 @@ const minecraftPlans = [
   { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
   { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
   { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
-  { name: "Ryden - Bedrock", ram: Infinity, cpu: Infinity, storage: Infinity, priceINR: 5000 },
+  { name: "Ryden - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
 ];
 
 const commonFeatures = ["Mod Support", "24/7 Uptime", "Low Latency", "DDoS Protection"];
 
-const cpuSteps = [0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+const cpuSteps = [0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
 function estimatePrice(ram: number, cpu: number, storage: number): number {
-  // Use known plans to interpolate price
-  const plans = minecraftPlans.filter(p => p.ram !== Infinity);
-  // Calculate resource score for input
+  const plans = minecraftPlans;
   const score = ram + cpu * 4 + storage * 0.25;
 
-  // Find surrounding plans
-  let lower = plans[0];
-  let upper = plans[plans.length - 1];
   const planScores = plans.map(p => ({ ...p, score: p.ram + p.cpu * 4 + p.storage * 0.25 }));
+
+  if (score <= planScores[0].score) return planScores[0].priceINR;
+  if (score >= planScores[planScores.length - 1].score) return planScores[planScores.length - 1].priceINR;
+
+  let lower = planScores[0];
+  let upper = planScores[planScores.length - 1];
 
   for (let i = 0; i < planScores.length - 1; i++) {
     if (score >= planScores[i].score && score <= planScores[i + 1].score) {
@@ -38,12 +39,7 @@ function estimatePrice(ram: number, cpu: number, storage: number): number {
     }
   }
 
-  if (score <= planScores[0].score) return planScores[0].priceINR;
-  if (score >= planScores[planScores.length - 1].score) return planScores[planScores.length - 1].priceINR;
-
-  const lowerScore = lower.ram + lower.cpu * 4 + lower.storage * 0.25;
-  const upperScore = upper.ram + upper.cpu * 4 + upper.storage * 0.25;
-  const t = (score - lowerScore) / (upperScore - lowerScore);
+  const t = (score - lower.score) / (upper.score - lower.score);
   return Math.round(lower.priceINR + t * (upper.priceINR - lower.priceINR));
 }
 
@@ -53,7 +49,7 @@ const GameHostingContent = () => {
   const [locationOpen, setLocationOpen] = useState(false);
   const [ram, setRam] = useState(4);
   const [cpu, setCpu] = useState(1);
-  const [cpuIndex, setCpuIndex] = useState(1);
+  const [cpuIndex, setCpuIndex] = useState(2);
   const [storage, setStorage] = useState(8);
   const [aiInput, setAiInput] = useState("");
   const [aiResponse, setAiResponse] = useState("");
@@ -65,7 +61,7 @@ const GameHostingContent = () => {
   const handleCpuChange = (val: number[]) => {
     const idx = val[0];
     setCpuIndex(idx);
-    setCpu(cpuSteps[idx] || 1);
+    setCpu(cpuSteps[idx] || 0.25);
   };
 
   const handleAiSuggest = async () => {
@@ -74,9 +70,7 @@ const GameHostingContent = () => {
     setAiResponse("");
     try {
       const planInfo = minecraftPlans.map(p =>
-        p.ram === Infinity
-          ? `${p.name}: Unlimited RAM, Unlimited vCores, Unlimited Storage - ${formatPrice(p.priceINR)}/mo`
-          : `${p.name}: ${p.ram}GB RAM, ${p.cpu} vCore(s), ${p.storage}GB Storage - ${formatPrice(p.priceINR)}/mo`
+        `${p.name}: ${p.ram}GB RAM, ${p.cpu} vCore(s), ${p.storage}GB Storage - ${formatPrice(p.priceINR)}/mo`
       ).join("\n");
 
       const res = await supabase.functions.invoke("minecraft-suggest", {
@@ -113,15 +107,15 @@ const GameHostingContent = () => {
             <ul className="space-y-2.5 mb-6">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                {plan.ram === Infinity ? "∞ GB RAM" : `${plan.ram}GB RAM`}
+                {plan.ram}GB RAM
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                {plan.cpu === Infinity ? "∞ vCore" : `${plan.cpu} vCore`}
+                {plan.cpu} vCore
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                {plan.storage === Infinity ? "∞ GB Storage" : `${plan.storage}GB Storage`}
+                {plan.storage}GB Storage
               </li>
               {commonFeatures.map((f, j) => (
                 <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -194,7 +188,9 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 19v-2"/><path d="M10 19v-2"/><path d="M14 19v-2"/><path d="M18 19v-2"/><path d="M8 11V9"/><path d="M16 11V9c0-1.1-.9-2-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M12 11v-2"/><rect x="2" y="11" width="20" height="6" rx="2"/></svg>
+                <svg className="w-4 h-4 text-primary" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M480 288H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h16v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h64v32c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-32h16c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm-16 80H48v-32h416v32zM208 176h-64v-64h64v64zm128 0h-64v-64h64v64zM48 208V128c0-17.67 14.33-32 32-32h352c17.67 0 32 14.33 32 32v80H48z"/>
+                </svg>
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>

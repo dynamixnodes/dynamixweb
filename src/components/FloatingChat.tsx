@@ -97,12 +97,18 @@ const FloatingChat = () => {
         <div className="w-[380px] h-[500px] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-scale-in">
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-border">
-            <div>
+            <div className="flex items-center gap-2">
+              {/* AI Bot SVG */}
+              <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <circle cx="9" cy="16" r="1" fill="currentColor" />
+                <circle cx="15" cy="16" r="1" fill="currentColor" />
+                <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                <path d="M12 3v1" />
+                <path d="M3 16H1" />
+                <path d="M23 16h-2" />
+              </svg>
               <h3 className="text-sm font-bold text-foreground">Ryden AI</h3>
-              <div className="flex items-center gap-1.5 mt-0.5">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span className="text-xs text-muted-foreground">Online</span>
-              </div>
             </div>
             <button onClick={() => setOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
               <X className="w-5 h-5" />
@@ -170,20 +176,12 @@ const FloatingChat = () => {
       )}
 
       {/* Floating Button */}
-      <div className="flex flex-col items-center gap-1">
-        <button
-          onClick={() => setOpen(!open)}
-          className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity hover:shadow-[0_0_30px_hsl(25_95%_50%/0.4)]"
-        >
-          {open ? <X className="w-6 h-6 text-primary-foreground" /> : <MessageCircle className="w-6 h-6 text-primary-foreground" />}
-        </button>
-        {!open && (
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-[10px] text-muted-foreground font-medium">Online</span>
-          </div>
-        )}
-      </div>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity hover:shadow-[0_0_30px_hsl(25_95%_50%/0.4)]"
+      >
+        {open ? <X className="w-6 h-6 text-primary-foreground" /> : <MessageCircle className="w-6 h-6 text-primary-foreground" />}
+      </button>
     </div>
   );
 };
