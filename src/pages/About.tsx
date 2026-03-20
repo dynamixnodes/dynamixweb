@@ -3,6 +3,39 @@ import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
 import { Globe, Users, Shield, Zap, MapPin, Heart } from "lucide-react";
 
+const teamMembers = [
+  {
+    name: "Dynamind OP",
+    role: "Founder",
+    avatar: "https://cdn.discordapp.com/avatars/1227522637056573512/48329531c6da50ab28581fcfe6d4dc03.png?size=1024",
+  },
+  {
+    name: "Hamlo Legend",
+    role: "Founder",
+    avatar: "https://cdn.discordapp.com/avatars/1180471985143283742/4a7a094ab30e59ca8f729b0189887070.png?size=1024",
+  },
+  {
+    name: "Rovex Cloud",
+    role: "Alt-Owner",
+    avatar: "https://cdn.discordapp.com/avatars/1438571341564612679/de4db0fffb062471e1f5e407f8bb951b.png?size=1024",
+  },
+  {
+    name: "Hostel Buddy",
+    role: "Chief Executive Officer",
+    avatar: "https://cdn.discordapp.com/avatars/1099559470385872996/d0bb0c8f05884b793479bc87991d5a63.png?size=1024",
+  },
+  {
+    name: "Ananad Satwik",
+    role: "Chief Moderation Staff",
+    avatar: "https://cdn.discordapp.com/avatars/1429065817227526195/778d45f90f3ce1d7ace53d6c0acdcceb.png?size=1024",
+  },
+  {
+    name: "Shriman Nishit",
+    role: "Chief Executive Staff",
+    avatar: "https://cdn.discordapp.com/avatars/965219100693499956/a65da8149efe840b74ea357702879540.png?size=1024",
+  },
+];
+
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -34,7 +67,7 @@ const About = () => {
                 <span className="gradient-text">Story</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                RydenByte was founded by <span className="text-foreground font-semibold">Dynamind</span> and <span className="text-foreground font-semibold">Hamlo</span> with a simple mission: to provide high-quality, affordable hosting solutions accessible to everyone.
+                RydenByte was founded by <span className="text-foreground font-semibold">Dynamind OP</span> and <span className="text-foreground font-semibold">Hamlo Legend</span> with a simple mission: to provide high-quality, affordable hosting solutions accessible to everyone.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Built in India, RydenByte offers VPS Hosting, Game Server Hosting (specializing in Minecraft), and Bot Hosting for Discord bots and automation. We believe that powerful hosting shouldn't come with a hefty price tag.
@@ -71,23 +104,22 @@ const About = () => {
             </div>
           </div>
 
-          {/* Founders */}
-          <div className="max-w-4xl mx-auto mt-20">
+          {/* Team */}
+          <div className="max-w-6xl mx-auto mt-20">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
               <span className="text-foreground">Meet The </span>
-              <span className="gradient-text">Founders</span>
+              <span className="gradient-text">Team</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                { name: "Dynamind", role: "Co-Founder" },
-                { name: "Hamlo", role: "Co-Founder" },
-              ].map((founder, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {teamMembers.map((member, i) => (
                 <div key={i} className="p-8 rounded-2xl bg-card border border-border text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
-                  <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-primary-foreground">{founder.name[0]}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{founder.name}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{founder.role}</p>
+                  <img
+                    src={member.avatar}
+                    alt={member.name}
+                    className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-primary/30"
+                  />
+                  <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{member.role}</p>
                 </div>
               ))}
             </div>
