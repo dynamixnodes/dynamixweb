@@ -23,10 +23,11 @@ const commonFeatures = ["Mod Support", "24/7 Uptime", "Low Latency", "DDoS Prote
 const cpuSteps = [0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
 function estimatePrice(ram: number, cpu: number, storage: number): number {
-  const plans = minecraftPlans;
+  // Include base plan (1GB/0.25vCore/4GB = ₹10) for accurate low-end pricing
+  const allPlans = [basePlan, ...minecraftPlans];
   const score = ram + cpu * 4 + storage * 0.25;
 
-  const planScores = plans.map(p => ({ ...p, score: p.ram + p.cpu * 4 + p.storage * 0.25 }));
+  const planScores = allPlans.map(p => ({ ...p, score: p.ram + p.cpu * 4 + p.storage * 0.25 }));
 
   if (score <= planScores[0].score) return planScores[0].priceINR;
   if (score >= planScores[planScores.length - 1].score) return planScores[planScores.length - 1].priceINR;
