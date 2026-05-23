@@ -192,7 +192,7 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <img src="https://i.postimg.cc/Hs0fGtHq/ram-memory-svgrepo-com.jpg" alt="RAM" className="w-4 h-4" />
+                <img src="https://www.svgrepo.com/show/456242/ram-memory.svg" alt="RAM" className="w-4 h-4 [filter:invert(48%)_sepia(79%)_saturate(2476%)_hue-rotate(346deg)_brightness(95%)_contrast(95%)]" />
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>
@@ -239,7 +239,7 @@ const GameHostingContent = () => {
               value={[storage]}
               onValueChange={(v) => setStorage(v[0])}
               min={4}
-              max={512}
+              max={1024}
               step={4}
               className="w-full"
             />
