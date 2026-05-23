@@ -15,9 +15,9 @@ const teamMembers = [
     avatar: "https://cdn.discordapp.com/avatars/1180471985143283742/4a7a094ab30e59ca8f729b0189887070.png?size=1024",
   },
   {
-    name: "Rovex Cloud",
-    role: "Alt-Owner",
-    avatar: "https://cdn.discordapp.com/avatars/1438571341564612679/de4db0fffb062471e1f5e407f8bb951b.png?size=1024",
+    name: "Smarty Here",
+    role: "Owner",
+    avatar: "https://cdn.discordapp.com/avatars/1200752029904154654/b6c8d28bfa99b4ba4ae73311fb3a0b1d.png?size=1024",
   },
   {
     name: "Hostel Buddy",
