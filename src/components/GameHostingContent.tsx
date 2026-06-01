@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Check, Cpu, HardDrive, MapPin, Sparkles, Lightbulb, ChevronDown, ArrowRight, Shield, Clock, Zap, Globe, Send, Database, Archive, Layers } from "lucide-react";
+import { Check, Cpu, HardDrive, Server, Sparkles, Lightbulb, ChevronDown, ArrowRight, Shield, Clock, Zap, Globe, Send, Database, Archive, Layers } from "lucide-react";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { Slider } from "@/components/ui/slider";
 import { supabase } from "@/integrations/supabase/client";
@@ -49,8 +49,8 @@ function estimatePrice(ram: number, cpu: number, storage: number): number {
 
 const GameHostingContent = () => {
   const { formatPrice, currency } = useCurrency();
-  const [location, setLocation] = useState("India");
-  const [locationOpen, setLocationOpen] = useState(false);
+  const [processor, setProcessor] = useState<"AMD EPYC" | "Intel Xeon">("AMD EPYC");
+  const [processorOpen, setProcessorOpen] = useState(false);
   const [ram, setRam] = useState(4);
   const [cpu, setCpu] = useState(1);
   const [cpuIndex, setCpuIndex] = useState(2);
@@ -58,9 +58,10 @@ const GameHostingContent = () => {
   const [aiInput, setAiInput] = useState("");
   const [aiResponse, setAiResponse] = useState("");
   const [aiLoading, setAiLoading] = useState(false);
-  const locationRef = useRef<HTMLDivElement>(null);
+  const processorRef = useRef<HTMLDivElement>(null);
 
-  const customPrice = estimatePrice(ram, cpu, storage);
+  const priceMultiplier = processor === "Intel Xeon" ? 0.6 : 1;
+  const customPrice = Math.round(estimatePrice(ram, cpu, storage) * priceMultiplier);
 
   const handleCpuChange = (val: number[]) => {
     const idx = val[0];
@@ -107,7 +108,7 @@ const GameHostingContent = () => {
             className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]"
           >
             <h3 className="text-lg font-bold text-foreground mb-2">{plan.name}</h3>
-            <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(plan.priceINR)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
+            <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(Math.round(plan.priceINR * priceMultiplier))}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
             <ul className="space-y-2.5 mb-6">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -158,29 +159,29 @@ const GameHostingContent = () => {
           </div>
           <p className="text-sm text-muted-foreground mb-8">Select your requirements and we'll show you the best plan for you</p>
 
-          {/* Location */}
+          {/* Processor */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Location</span>
+              <Server className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-foreground">Processor</span>
             </div>
-            <div ref={locationRef} className="relative">
+            <div ref={processorRef} className="relative">
               <button
-                onClick={() => setLocationOpen(!locationOpen)}
+                onClick={() => setProcessorOpen(!processorOpen)}
                 className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-muted border border-border text-sm text-foreground"
               >
-                {location}
-                <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${locationOpen ? "rotate-180" : ""}`} />
+                {processor}
+                <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${processorOpen ? "rotate-180" : ""}`} />
               </button>
-              {locationOpen && (
+              {processorOpen && (
                 <div className="absolute top-full mt-1 left-0 right-0 bg-card border border-border rounded-lg py-1 shadow-xl z-10">
-                  {["India", "Singapore"].map((loc) => (
+                  {(["AMD EPYC", "Intel Xeon"] as const).map((proc) => (
                     <button
-                      key={loc}
-                      onClick={() => { setLocation(loc); setLocationOpen(false); }}
-                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${loc === location ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}
+                      key={proc}
+                      onClick={() => { setProcessor(proc); setProcessorOpen(false); }}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${proc === processor ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}
                     >
-                      {loc}
+                      {proc}{proc === "Intel Xeon" ? " (40% off)" : ""}
                     </button>
                   ))}
                 </div>
@@ -192,7 +193,7 @@ const GameHostingContent = () => {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <img src="https://www.svgrepo.com/show/456242/ram-memory.svg" alt="RAM" className="w-4 h-4 [filter:invert(48%)_sepia(79%)_saturate(2476%)_hue-rotate(346deg)_brightness(95%)_contrast(95%)]" />
+                <img src="https://www.svgrepo.com/show/456242/ram-memory.svg" alt="RAM" className="w-4 h-4 [filter:brightness(0)_saturate(100%)_invert(78%)_sepia(58%)_saturate(2363%)_hue-rotate(2deg)_brightness(102%)_contrast(102%)]" />
                 <span className="text-sm font-medium text-foreground">RAM</span>
               </div>
               <span className="text-sm font-bold text-primary">{ram} GB</span>
