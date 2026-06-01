@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/dynamixnodes-logo.png";
+import logo from "@/assets/eternalnodes-logo.png";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-4">
               <img src={logo} alt="EternalNodes" className="w-8 h-8 rounded-lg" />
               <span className="font-bold">
-                <span className="gradient-text">Ryden</span>Byte
+                <span className="gradient-text">Eternal</span><span className="text-foreground">Nodes</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground">

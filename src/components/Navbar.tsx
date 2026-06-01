@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X, Server, Gamepad2, Bot } from "lucide-react";
-import logo from "@/assets/dynamixnodes-logo.png";
+import logo from "@/assets/eternalnodes-logo.png";
 import { useCurrency, CurrencyCode } from "@/contexts/CurrencyContext";
 
 const services = [
@@ -39,7 +39,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-3 flex-shrink-0">
           <img src={logo} alt="EternalNodes" className="w-10 h-10 rounded-lg" />
           <span className="text-xl font-bold tracking-tight">
-            <span className="gradient-text">Ryden</span>Byte
+            <span className="gradient-text">Eternal</span><span className="text-foreground">Nodes</span>
           </span>
         </Link>
 

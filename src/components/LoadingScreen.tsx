@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "@/assets/dynamixnodes-logo.png";
+import logo from "@/assets/eternalnodes-logo.png";
 
 const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
   const [progress, setProgress] = useState(0);
@@ -78,7 +78,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
 
       <img src={logo} alt="EternalNodes" className="w-16 h-16 rounded-xl relative z-10" />
       <h2 className="text-2xl font-bold relative z-10">
-        <span className="gradient-text">Ryden</span>Byte
+        <span className="gradient-text">Eternal</span><span className="text-foreground">Nodes</span>
       </h2>
 
       {/* Circuit-styled loading bar */}
