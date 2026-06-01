@@ -52,7 +52,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
                 key={`lp${i}`}
                 d={`M ${x1} ${y1} L ${x1 + 100} ${y1} L ${x1 + 100} ${y1 + 50} L ${x1 + 200} ${y1 + 50}`}
                 fill="none"
-                stroke="hsl(25 95% 50%)"
+                stroke="hsl(48 100% 50%)"
                 strokeWidth="1"
                 strokeDasharray="8 4"
                 opacity="0.6"
@@ -90,7 +90,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
           <div
             className="absolute inset-0 opacity-60"
             style={{
-              backgroundImage: `repeating-linear-gradient(90deg, transparent, transparent 4px, hsl(25 95% 55% / 0.5) 4px, hsl(25 95% 55% / 0.5) 8px)`,
+              backgroundImage: `repeating-linear-gradient(90deg, transparent, transparent 4px, hsl(50 100% 55% / 0.5) 4px, hsl(50 100% 55% / 0.5) 8px)`,
               backgroundSize: '16px 100%',
               animation: 'loading-gradient 1s linear infinite',
             }}

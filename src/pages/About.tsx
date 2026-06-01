@@ -93,7 +93,7 @@ const About = () => {
                 { icon: Globe, title: "Accessibility", desc: "Affordable pricing across multiple currencies so everyone can access quality hosting." },
                 { icon: Users, title: "Support", desc: "Active Discord community with fast ticket-based support from our dedicated team." },
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
                   <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                     <item.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
@@ -112,7 +112,7 @@ const About = () => {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {teamMembers.map((member, i) => (
-                <div key={i} className="p-8 rounded-2xl bg-card border border-border text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+                <div key={i} className="p-8 rounded-2xl bg-card border border-border text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
                   <img
                     src={member.avatar}
                     alt={member.name}

@@ -178,7 +178,7 @@ const FloatingChat = () => {
       {/* Floating Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity hover:shadow-[0_0_30px_hsl(25_95%_50%/0.4)]"
+        className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center shadow-lg hover:opacity-90 transition-opacity hover:shadow-[0_0_30px_hsl(48_100%_50%/0.4)]"
       >
         {open ? <X className="w-6 h-6 text-primary-foreground" /> : <MessageCircle className="w-6 h-6 text-primary-foreground" />}
       </button>

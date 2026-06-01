@@ -48,7 +48,7 @@ const ServiceBanners = () => {
           {services.map((s, i) => (
             <div
               key={i}
-              className={`group relative p-10 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)] overflow-hidden ${
+              className={`group relative p-10 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)] overflow-hidden ${
                 s.popular ? "border-primary/50 glow-effect" : "border-border hover:border-primary/50"
               }`}
             >

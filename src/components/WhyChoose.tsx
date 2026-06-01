@@ -24,7 +24,7 @@ const WhyChoose = () => {
           {features.map((f, i) => (
             <div
               key={i}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_hsl(25_95%_53%/0.15)]"
+              className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_hsl(50_100%_55%/0.15)]"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">

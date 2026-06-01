@@ -104,7 +104,7 @@ const GameHostingContent = () => {
         {minecraftPlans.map((plan, i) => (
           <div
             key={i}
-            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]"
+            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]"
           >
             <h3 className="text-lg font-bold text-foreground mb-2">{plan.name}</h3>
             <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(plan.priceINR)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
@@ -151,7 +151,7 @@ const GameHostingContent = () => {
       {/* Custom Plan Builder + AI Suggestor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {/* Build Your Custom Plan */}
-        <div className="p-8 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+        <div className="p-8 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground">Build Your Custom Plan</h3>
@@ -253,7 +253,7 @@ const GameHostingContent = () => {
         </div>
 
         {/* AI Suggestor */}
-        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground">Eternal AI Suggestor</h3>
@@ -303,7 +303,7 @@ const GameHostingContent = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Backup */}
-          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Archive className="w-5 h-5 text-primary-foreground" />
             </div>
@@ -321,7 +321,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Allocation */}
-          <div className="relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+          <div className="relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
             <div className="absolute -top-3 right-4 px-3 py-1 rounded-full text-xs font-bold gradient-primary text-primary-foreground">
               EXTERNAL
             </div>
@@ -342,7 +342,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Database */}
-          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Database className="w-5 h-5 text-primary-foreground" />
             </div>
