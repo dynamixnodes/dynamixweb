@@ -76,7 +76,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
 
       <div className="absolute w-64 h-64 rounded-full opacity-20 blur-[100px] gradient-primary" />
 
-      <img src={logo} alt="RydenByte" className="w-16 h-16 rounded-xl relative z-10" />
+      <img src={logo} alt="EternalNodes" className="w-16 h-16 rounded-xl relative z-10" />
       <h2 className="text-2xl font-bold relative z-10">
         <span className="gradient-text">Ryden</span>Byte
       </h2>

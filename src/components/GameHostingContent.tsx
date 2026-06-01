@@ -5,14 +5,14 @@ import { Slider } from "@/components/ui/slider";
 import { supabase } from "@/integrations/supabase/client";
 
 const minecraftPlans = [
-  { name: "Ryden - Dirt", ram: 2, cpu: 0.5, storage: 8, priceINR: 20 },
-  { name: "Ryden - Copper", ram: 4, cpu: 1, storage: 16, priceINR: 45 },
-  { name: "Ryden - Iron", ram: 8, cpu: 2, storage: 32, priceINR: 90 },
-  { name: "Ryden - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
-  { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
-  { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
-  { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
-  { name: "Ryden - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
+  { name: "Eternal - Dirt", ram: 2, cpu: 0.5, storage: 8, priceINR: 20 },
+  { name: "Eternal - Copper", ram: 4, cpu: 1, storage: 16, priceINR: 45 },
+  { name: "Eternal - Iron", ram: 8, cpu: 2, storage: 32, priceINR: 90 },
+  { name: "Eternal - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
+  { name: "Eternal - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
+  { name: "Eternal - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
+  { name: "Eternal - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
+  { name: "Eternal - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
 ];
 
 // Base plan for custom pricing: 1GB RAM, 0.25 vCore, 4GB Storage = ₹10
@@ -256,7 +256,7 @@ const GameHostingContent = () => {
         <div className="p-8 rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-bold text-foreground">Ryden AI Suggestor</h3>
+            <h3 className="text-xl font-bold text-foreground">Eternal AI Suggestor</h3>
           </div>
           <p className="text-sm text-muted-foreground mb-6">Tell us what you need and our AI will suggest the perfect Minecraft plan for you</p>
 

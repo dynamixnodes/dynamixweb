@@ -103,7 +103,7 @@ const Chatbot = () => {
             <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
               Meet Our Chatbot,
             </h1>
-            <h2 className="text-3xl md:text-5xl font-bold gradient-text mt-1">Ryden AI</h2>
+            <h2 className="text-3xl md:text-5xl font-bold gradient-text mt-1">Eternal AI</h2>
           </div>
 
           {/* Chat box */}

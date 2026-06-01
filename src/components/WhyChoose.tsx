@@ -14,7 +14,7 @@ const WhyChoose = () => {
     <section className="py-24 px-6">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          Why Choose <span className="gradient-text">RydenByte</span>?
+          Why Choose <span className="gradient-text">EternalNodes</span>?
         </h2>
         <p className="text-muted-foreground text-center mb-16 max-w-xl mx-auto">
           Enterprise-grade features that power your success

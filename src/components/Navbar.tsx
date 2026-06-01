@@ -37,7 +37,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 flex-shrink-0">
-          <img src={logo} alt="RydenByte" className="w-10 h-10 rounded-lg" />
+          <img src={logo} alt="EternalNodes" className="w-10 h-10 rounded-lg" />
           <span className="text-xl font-bold tracking-tight">
             <span className="gradient-text">Ryden</span>Byte
           </span>

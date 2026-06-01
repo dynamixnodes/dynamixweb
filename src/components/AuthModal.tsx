@@ -37,7 +37,7 @@ const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
           {mode === "register" ? "Create Account" : "Welcome Back"}
         </h2>
         <p className="text-sm text-muted-foreground text-center mb-6">
-          {mode === "register" ? "Join RydenByte today" : "Sign in to your account"}
+          {mode === "register" ? "Join EternalNodes today" : "Sign in to your account"}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">

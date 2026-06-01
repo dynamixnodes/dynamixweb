@@ -21,7 +21,7 @@ const serviceData: Record<string, {
     description: "Enterprise-grade virtual private servers powered by AMD EPYC processors with NVMe storage and advanced DDoS protection for maximum performance.",
     plans: [
       {
-        name: "Ryden VPS",
+        name: "Eternal VPS",
         tag: "Performance",
         priceINR: 440,
         features: ["8GB RAM", "2 vCore", "20GB NVMe SSD", "AMD EPYC CPU", "DDoS Protection", "Full Root Access"],
@@ -43,9 +43,9 @@ const serviceData: Record<string, {
     titleOrange: "BOT HOSTING",
     description: "Always-on bot hosting with guaranteed uptime, auto-restart capabilities for Discord bots and automation.",
     plans: [
-      { name: "Ryden - Mini", priceINR: 15, features: ["512 MB RAM", "0.5 vCore", "2 GB SSD", "Best for small Discord bots", "Auto Restart", "99.9% Uptime"] },
-      { name: "Ryden - Basic", priceINR: 30, features: ["1024 MB RAM", "1 vCore", "4 GB SSD", "Good for normal bots", "Auto Restart", "99.9% Uptime"], popular: true },
-      { name: "Ryden - Elite", priceINR: 90, features: ["3072 MB RAM", "2 vCore", "10 GB SSD", "Music / Economy / Multi bots", "Auto Restart", "99.9% Uptime"] },
+      { name: "Eternal - Mini", priceINR: 15, features: ["512 MB RAM", "0.5 vCore", "2 GB SSD", "Best for small Discord bots", "Auto Restart", "99.9% Uptime"] },
+      { name: "Eternal - Basic", priceINR: 30, features: ["1024 MB RAM", "1 vCore", "4 GB SSD", "Good for normal bots", "Auto Restart", "99.9% Uptime"], popular: true },
+      { name: "Eternal - Elite", priceINR: 90, features: ["3072 MB RAM", "2 vCore", "10 GB SSD", "Music / Economy / Multi bots", "Auto Restart", "99.9% Uptime"] },
     ],
     bottomFeatures: [
       { icon: Clock, title: "99.9% Uptime", desc: "Your bots stay online around the clock" },

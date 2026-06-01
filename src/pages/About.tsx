@@ -67,10 +67,10 @@ const About = () => {
                 <span className="gradient-text">Story</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                RydenByte was founded by <span className="text-foreground font-semibold">Dynamind OP</span> and <span className="text-foreground font-semibold">Hamlo Legend</span> with a simple mission: to provide high-quality, affordable hosting solutions accessible to everyone.
+                EternalNodes was founded by <span className="text-foreground font-semibold">Dynamind OP</span> and <span className="text-foreground font-semibold">Hamlo Legend</span> with a simple mission: to provide high-quality, affordable hosting solutions accessible to everyone.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Built in India, RydenByte offers VPS Hosting, Game Server Hosting (specializing in Minecraft), and Bot Hosting for Discord bots and automation. We believe that powerful hosting shouldn't come with a hefty price tag.
+                Built in India, EternalNodes offers VPS Hosting, Game Server Hosting (specializing in Minecraft), and Bot Hosting for Discord bots and automation. We believe that powerful hosting shouldn't come with a hefty price tag.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our team is passionate about delivering enterprise-grade infrastructure with the personal touch of a community-driven company. Every server we deploy is backed by DDoS protection, NVMe SSD storage, and 24/7 monitoring.

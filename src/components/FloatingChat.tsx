@@ -108,7 +108,7 @@ const FloatingChat = () => {
                 <path d="M3 16H1" />
                 <path d="M23 16h-2" />
               </svg>
-              <h3 className="text-sm font-bold text-foreground">Ryden AI</h3>
+              <h3 className="text-sm font-bold text-foreground">Eternal AI</h3>
             </div>
             <button onClick={() => setOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
               <X className="w-5 h-5" />
@@ -119,7 +119,7 @@ const FloatingChat = () => {
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
             {messages.length === 0 && (
               <div className="flex items-center justify-center h-full text-muted-foreground text-xs">
-                Ask me anything about RydenByte! 🚀
+                Ask me anything about EternalNodes! 🚀
               </div>
             )}
             {messages.map((msg, i) => (
