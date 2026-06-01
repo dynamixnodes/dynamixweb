@@ -66,7 +66,7 @@ const gameHostingMeta = {
   bottomFeatures: [
     { icon: Zap, title: "Ultra-Low Latency", desc: "Optimized network routes for lag-free gaming" },
     { icon: Shield, title: "DDoS Protection", desc: "Keep your server online during attacks" },
-    { icon: HardDrive, title: "NVMe Storage", desc: "High-speed storage for fast world loading" },
+    { icon: Cpu, title: "Enterprise Processors", desc: "AMD EPYC & Intel Xeon CPUs for blazing performance" },
     { icon: Cpu, title: "Mod Support", desc: "Full support for plugins, mods, and custom configs" },
     { icon: Globe, title: "One-Click Install", desc: "Deploy popular games instantly with templates" },
     { icon: Clock, title: "24/7 Monitoring", desc: "Automatic restart and health monitoring" },
