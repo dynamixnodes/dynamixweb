@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "@/assets/dynamixnodes-logo.png";
+import logo from "@/assets/eternalnodes-logo.png";
 
 const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
   const [progress, setProgress] = useState(0);
@@ -52,7 +52,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
                 key={`lp${i}`}
                 d={`M ${x1} ${y1} L ${x1 + 100} ${y1} L ${x1 + 100} ${y1 + 50} L ${x1 + 200} ${y1 + 50}`}
                 fill="none"
-                stroke="hsl(25 95% 50%)"
+                stroke="hsl(48 100% 50%)"
                 strokeWidth="1"
                 strokeDasharray="8 4"
                 opacity="0.6"
@@ -76,9 +76,9 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
 
       <div className="absolute w-64 h-64 rounded-full opacity-20 blur-[100px] gradient-primary" />
 
-      <img src={logo} alt="RydenByte" className="w-16 h-16 rounded-xl relative z-10" />
+      <img src={logo} alt="EternalNodes" className="w-16 h-16 rounded-xl relative z-10" />
       <h2 className="text-2xl font-bold relative z-10">
-        <span className="gradient-text">Ryden</span>Byte
+        <span className="gradient-text">Eternal</span><span className="text-foreground">Nodes</span>
       </h2>
 
       {/* Circuit-styled loading bar */}
@@ -90,7 +90,7 @@ const LoadingScreen = ({ onFinish }: { onFinish: () => void }) => {
           <div
             className="absolute inset-0 opacity-60"
             style={{
-              backgroundImage: `repeating-linear-gradient(90deg, transparent, transparent 4px, hsl(25 95% 55% / 0.5) 4px, hsl(25 95% 55% / 0.5) 8px)`,
+              backgroundImage: `repeating-linear-gradient(90deg, transparent, transparent 4px, hsl(50 100% 55% / 0.5) 4px, hsl(50 100% 55% / 0.5) 8px)`,
               backgroundSize: '16px 100%',
               animation: 'loading-gradient 1s linear infinite',
             }}

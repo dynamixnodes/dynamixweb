@@ -21,7 +21,7 @@ const serviceData: Record<string, {
     description: "Enterprise-grade virtual private servers powered by AMD EPYC processors with NVMe storage and advanced DDoS protection for maximum performance.",
     plans: [
       {
-        name: "Ryden VPS",
+        name: "Eternal VPS",
         tag: "Performance",
         priceINR: 440,
         features: ["8GB RAM", "2 vCore", "20GB NVMe SSD", "AMD EPYC CPU", "DDoS Protection", "Full Root Access"],
@@ -43,9 +43,9 @@ const serviceData: Record<string, {
     titleOrange: "BOT HOSTING",
     description: "Always-on bot hosting with guaranteed uptime, auto-restart capabilities for Discord bots and automation.",
     plans: [
-      { name: "Ryden - Mini", priceINR: 15, features: ["512 MB RAM", "0.5 vCore", "2 GB SSD", "Best for small Discord bots", "Auto Restart", "99.9% Uptime"] },
-      { name: "Ryden - Basic", priceINR: 30, features: ["1024 MB RAM", "1 vCore", "4 GB SSD", "Good for normal bots", "Auto Restart", "99.9% Uptime"], popular: true },
-      { name: "Ryden - Elite", priceINR: 90, features: ["3072 MB RAM", "2 vCore", "10 GB SSD", "Music / Economy / Multi bots", "Auto Restart", "99.9% Uptime"] },
+      { name: "Eternal - Mini", priceINR: 15, features: ["512 MB RAM", "0.5 vCore", "2 GB SSD", "Best for small Discord bots", "Auto Restart", "99.9% Uptime"] },
+      { name: "Eternal - Basic", priceINR: 30, features: ["1024 MB RAM", "1 vCore", "4 GB SSD", "Good for normal bots", "Auto Restart", "99.9% Uptime"], popular: true },
+      { name: "Eternal - Elite", priceINR: 90, features: ["3072 MB RAM", "2 vCore", "10 GB SSD", "Music / Economy / Multi bots", "Auto Restart", "99.9% Uptime"] },
     ],
     bottomFeatures: [
       { icon: Clock, title: "99.9% Uptime", desc: "Your bots stay online around the clock" },
@@ -112,7 +112,7 @@ const ServicePage = () => {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {meta.bottomFeatures.map((feat, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+                  <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
                     <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                       <feat.icon className="w-6 h-6 text-primary-foreground" />
                     </div>
@@ -158,7 +158,7 @@ const ServicePage = () => {
           {/* Plans */}
           <div className={`grid gap-8 max-w-6xl mx-auto ${isVps ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' : 'grid-cols-1 md:grid-cols-3'}`}>
             {isVps && (
-              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 select-none transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]" draggable={false}>
+              <div className="relative rounded-2xl bg-card border border-border overflow-hidden p-8 select-none transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]" draggable={false}>
                 <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-7 h-7 text-primary-foreground" />
                 </div>
@@ -178,7 +178,7 @@ const ServicePage = () => {
                       <div className="relative w-full h-2.5 rounded-full bg-muted">
                         <div className="h-full rounded-full gradient-primary" style={{ width: `${stat.value}%` }} />
                         <div
-                          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-foreground border-2 border-primary shadow-[0_0_8px_hsl(25_95%_50%/0.5)]"
+                          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-foreground border-2 border-primary shadow-[0_0_8px_hsl(48_100%_50%/0.5)]"
                           style={{ right: `${100 - stat.value}%`, transform: 'translate(50%, -50%)' }}
                         />
                       </div>
@@ -198,7 +198,7 @@ const ServicePage = () => {
             {data.plans.map((plan, i) => (
               <div
                 key={i}
-                className={`relative p-10 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(25_95%_50%/0.15)] ${
+                className={`relative p-10 rounded-2xl bg-card border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.15)] ${
                   plan.popular ? "border-primary/50 glow-effect" : "border-border"
                 }`}
               >
@@ -244,7 +244,7 @@ const ServicePage = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {data.bottomFeatures.map((feat, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
                   <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                     <feat.icon className="w-6 h-6 text-primary-foreground" />
                   </div>

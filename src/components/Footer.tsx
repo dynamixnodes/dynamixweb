@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/dynamixnodes-logo.png";
+import logo from "@/assets/eternalnodes-logo.png";
 
 const Footer = () => {
   return (
@@ -8,9 +8,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="RydenByte" className="w-8 h-8 rounded-lg" />
+              <img src={logo} alt="EternalNodes" className="w-8 h-8 rounded-lg" />
               <span className="font-bold">
-                <span className="gradient-text">Ryden</span>Byte
+                <span className="gradient-text">Eternal</span><span className="text-foreground">Nodes</span>
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} RydenByte. All rights reserved.
+          © {new Date().getFullYear()} EternalNodes. All rights reserved.
         </div>
       </div>
     </footer>

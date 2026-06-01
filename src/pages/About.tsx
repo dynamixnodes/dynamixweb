@@ -3,39 +3,6 @@ import Footer from "@/components/Footer";
 import CircuitBackground from "@/components/CircuitBackground";
 import { Globe, Users, Shield, Zap, MapPin, Heart } from "lucide-react";
 
-const teamMembers = [
-  {
-    name: "Dynamind OP",
-    role: "Founder",
-    avatar: "https://cdn.discordapp.com/avatars/1227522637056573512/48329531c6da50ab28581fcfe6d4dc03.png?size=1024",
-  },
-  {
-    name: "Hamlo Legend",
-    role: "Founder",
-    avatar: "https://cdn.discordapp.com/avatars/1180471985143283742/4a7a094ab30e59ca8f729b0189887070.png?size=1024",
-  },
-  {
-    name: "Smarty Here",
-    role: "Owner",
-    avatar: "https://cdn.discordapp.com/avatars/1200752029904154654/b6c8d28bfa99b4ba4ae73311fb3a0b1d.png?size=1024",
-  },
-  {
-    name: "Hostel Buddy",
-    role: "Chief Executive Officer",
-    avatar: "https://cdn.discordapp.com/avatars/1099559470385872996/d0bb0c8f05884b793479bc87991d5a63.png?size=1024",
-  },
-  {
-    name: "Ananad Satwik",
-    role: "Chief Moderation Staff",
-    avatar: "https://cdn.discordapp.com/avatars/1429065817227526195/778d45f90f3ce1d7ace53d6c0acdcceb.png?size=1024",
-  },
-  {
-    name: "Shriman Nishit",
-    role: "Chief Executive Staff",
-    avatar: "https://cdn.discordapp.com/avatars/965219100693499956/a65da8149efe840b74ea357702879540.png?size=1024",
-  },
-];
-
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -52,7 +19,8 @@ const About = () => {
               <span className="text-foreground">ABOUT</span>
             </h1>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="gradient-text">RYDENBYTE</span>
+              <span className="gradient-text">ETERNAL</span>
+              <span className="text-foreground">NODES</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Empowering developers, gamers, and creators with reliable, affordable hosting solutions — proudly made in India.
@@ -67,10 +35,10 @@ const About = () => {
                 <span className="gradient-text">Story</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                RydenByte was founded by <span className="text-foreground font-semibold">Dynamind OP</span> and <span className="text-foreground font-semibold">Hamlo Legend</span> with a simple mission: to provide high-quality, affordable hosting solutions accessible to everyone.
+                EternalNodes was founded by <span className="text-foreground font-semibold">Dynamind OP</span> with a simple mission: to provide high-quality, affordable hosting solutions accessible to everyone.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Built in India, RydenByte offers VPS Hosting, Game Server Hosting (specializing in Minecraft), and Bot Hosting for Discord bots and automation. We believe that powerful hosting shouldn't come with a hefty price tag.
+                Built in India, EternalNodes offers VPS Hosting, Game Server Hosting (specializing in Minecraft), and Bot Hosting for Discord bots and automation. We believe that powerful hosting shouldn't come with a hefty price tag.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our team is passionate about delivering enterprise-grade infrastructure with the personal touch of a community-driven company. Every server we deploy is backed by DDoS protection, NVMe SSD storage, and 24/7 monitoring.
@@ -93,33 +61,12 @@ const About = () => {
                 { icon: Globe, title: "Accessibility", desc: "Affordable pricing across multiple currencies so everyone can access quality hosting." },
                 { icon: Users, title: "Support", desc: "Active Discord community with fast ticket-based support from our dedicated team." },
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+                <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
                   <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4">
                     <item.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Team */}
-          <div className="max-w-6xl mx-auto mt-20">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              <span className="text-foreground">Meet The </span>
-              <span className="gradient-text">Team</span>
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, i) => (
-                <div key={i} className="p-8 rounded-2xl bg-card border border-border text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
-                  <img
-                    src={member.avatar}
-                    alt={member.name}
-                    className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-primary/30"
-                  />
-                  <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{member.role}</p>
                 </div>
               ))}
             </div>

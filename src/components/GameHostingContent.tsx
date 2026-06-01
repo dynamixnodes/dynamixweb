@@ -5,14 +5,14 @@ import { Slider } from "@/components/ui/slider";
 import { supabase } from "@/integrations/supabase/client";
 
 const minecraftPlans = [
-  { name: "Ryden - Dirt", ram: 2, cpu: 0.5, storage: 8, priceINR: 20 },
-  { name: "Ryden - Copper", ram: 4, cpu: 1, storage: 16, priceINR: 45 },
-  { name: "Ryden - Iron", ram: 8, cpu: 2, storage: 32, priceINR: 90 },
-  { name: "Ryden - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
-  { name: "Ryden - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
-  { name: "Ryden - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
-  { name: "Ryden - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
-  { name: "Ryden - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
+  { name: "Eternal - Dirt", ram: 2, cpu: 0.5, storage: 8, priceINR: 20 },
+  { name: "Eternal - Copper", ram: 4, cpu: 1, storage: 16, priceINR: 45 },
+  { name: "Eternal - Iron", ram: 8, cpu: 2, storage: 32, priceINR: 90 },
+  { name: "Eternal - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
+  { name: "Eternal - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
+  { name: "Eternal - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
+  { name: "Eternal - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
+  { name: "Eternal - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
 ];
 
 // Base plan for custom pricing: 1GB RAM, 0.25 vCore, 4GB Storage = ₹10
@@ -104,7 +104,7 @@ const GameHostingContent = () => {
         {minecraftPlans.map((plan, i) => (
           <div
             key={i}
-            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]"
+            className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]"
           >
             <h3 className="text-lg font-bold text-foreground mb-2">{plan.name}</h3>
             <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(plan.priceINR)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
@@ -151,7 +151,7 @@ const GameHostingContent = () => {
       {/* Custom Plan Builder + AI Suggestor */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {/* Build Your Custom Plan */}
-        <div className="p-8 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+        <div className="p-8 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-5 h-5 text-primary" />
             <h3 className="text-xl font-bold text-foreground">Build Your Custom Plan</h3>
@@ -253,10 +253,10 @@ const GameHostingContent = () => {
         </div>
 
         {/* AI Suggestor */}
-        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+        <div className="p-8 rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
           <div className="flex items-center gap-2 mb-2">
             <Lightbulb className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-bold text-foreground">Ryden AI Suggestor</h3>
+            <h3 className="text-xl font-bold text-foreground">Eternal AI Suggestor</h3>
           </div>
           <p className="text-sm text-muted-foreground mb-6">Tell us what you need and our AI will suggest the perfect Minecraft plan for you</p>
 
@@ -303,7 +303,7 @@ const GameHostingContent = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Backup */}
-          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Archive className="w-5 h-5 text-primary-foreground" />
             </div>
@@ -321,7 +321,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Allocation */}
-          <div className="relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+          <div className="relative p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
             <div className="absolute -top-3 right-4 px-3 py-1 rounded-full text-xs font-bold gradient-primary text-primary-foreground">
               EXTERNAL
             </div>
@@ -342,7 +342,7 @@ const GameHostingContent = () => {
           </div>
 
           {/* Database */}
-          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(20_90%_42%/0.2)]">
+          <div className="p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]">
             <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Database className="w-5 h-5 text-primary-foreground" />
             </div>
