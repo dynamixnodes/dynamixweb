@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X, Server, Gamepad2, Bot } from "lucide-react";
 import logo from "@/assets/eternalnodes-logo.png";
 import { useCurrency, CurrencyCode } from "@/contexts/CurrencyContext";
@@ -19,6 +19,8 @@ const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currencyRef = useRef<HTMLDivElement>(null);
   const { currency, setCurrency } = useCurrency();
+  const location = useLocation();
+  const servicesActive = ["/vps-hosting", "/game-hosting", "/bot-hosting"].includes(location.pathname);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -45,12 +47,12 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center flex-1 justify-center gap-8">
-          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+          <NavLink to="/" end className={({ isActive }) => `nav-link ${isActive ? "is-active" : ""}`}>Home</NavLink>
 
           <div ref={dropdownRef} className="relative">
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className={`nav-link flex items-center gap-1 ${servicesActive ? "is-active" : ""}`}
             >
               Services <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
             </button>
@@ -71,8 +73,8 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link>
-          <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Support</Link>
+          <NavLink to="/about" className={({ isActive }) => `nav-link ${isActive ? "is-active" : ""}`}>About</NavLink>
+          <NavLink to="/support" className={({ isActive }) => `nav-link ${isActive ? "is-active" : ""}`}>Support</NavLink>
         </div>
 
         <div className="hidden md:flex items-center gap-3 flex-shrink-0">

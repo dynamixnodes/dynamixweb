@@ -188,3 +188,31 @@
   0% { stroke-dashoffset: 1000; }
   100% { stroke-dashoffset: 0; }
 }
+
+@layer components {
+  .nav-link {
+    @apply relative inline-block text-sm text-muted-foreground hover:text-foreground transition-colors;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    background: hsl(var(--primary));
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s ease;
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  .nav-link.is-active {
+    @apply text-foreground;
+  }
+  .nav-link.is-active::after {
+    transform: scaleX(1);
+  }
+}
