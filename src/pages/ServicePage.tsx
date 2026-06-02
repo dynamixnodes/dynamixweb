@@ -23,15 +23,15 @@ const serviceData: Record<string, {
       {
         name: "Eternal VPS",
         tag: "Performance",
-        priceINR: 440,
-        features: ["8GB RAM", "2 vCore", "20GB NVMe SSD", "AMD EPYC CPU", "DDoS Protection", "Full Root Access"],
+        priceINR: 100,
+        features: ["8GB RAM", "2 vCore", "32GB Disk Storage", "Intel Xeon CPU", "DDoS Protection", "Full Root Access"],
         popular: true,
       },
     ],
     bottomFeatures: [
       { icon: Cpu, title: "AMD EPYC CPUs", desc: "Latest generation processors for blazing fast performance" },
       { icon: Shield, title: "DDoS Protection", desc: "Enterprise-grade protection against all attack vectors" },
-      { icon: HardDrive, title: "NVMe SSD Storage", desc: "Ultra-fast storage with guaranteed IOPS" },
+      { icon: HardDrive, title: "Fast SSD Storage", desc: "Ultra-fast storage with guaranteed IOPS" },
       { icon: Clock, title: "99.9% Uptime SLA", desc: "Industry-leading uptime guarantee with monitoring" },
       { icon: Globe, title: "Global Network", desc: "Low-latency connections across multiple regions" },
       { icon: Zap, title: "Instant Deployment", desc: "Get your server up and running in seconds" },
