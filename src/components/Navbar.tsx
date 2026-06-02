@@ -102,7 +102,7 @@ const Navbar = () => {
           </div>
 
           <a
-            href="https://discord.gg/F8PKTvvMUZ"
+            href="https://dsc.gg/eternalnodes"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2 rounded-lg text-sm font-medium text-primary border border-primary/40 hover:gradient-primary hover:text-primary-foreground transition-all duration-300"
@@ -148,7 +148,7 @@ const Navbar = () => {
             </div>
 
             <a
-              href="https://discord.gg/F8PKTvvMUZ"
+              href="https://dsc.gg/eternalnodes"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-lg text-sm font-medium text-primary border border-primary/40 text-center"

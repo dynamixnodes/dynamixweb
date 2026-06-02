@@ -31,7 +31,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4 text-sm">Support</h4>
             <div className="flex flex-col gap-2">
               <Link to="/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Get Help</Link>
-              <a href="https://discord.gg/F8PKTvvMUZ" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Discord</a>
+              <a href="https://dsc.gg/eternalnodes" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Discord</a>
             </div>
           </div>
 
