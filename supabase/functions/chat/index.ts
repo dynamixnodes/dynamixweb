@@ -10,7 +10,62 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    const { messages } = await req.json();
+    // Simple per-IP rate limiting (in-memory, per-instance)
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+      req.headers.get("cf-connecting-ip") ||
+      "unknown";
+    const now = Date.now();
+    const WINDOW_MS = 60_000;
+    const MAX_REQ = 20;
+    // @ts-ignore - module-scoped map
+    const store: Map<string, number[]> = (globalThis as any).__chatRate ||= new Map();
+    const arr = (store.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+    if (arr.length >= MAX_REQ) {
+      return new Response(JSON.stringify({ error: "Too many requests. Please slow down." }), {
+        status: 429,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    arr.push(now);
+    store.set(ip, arr);
+
+    const body = await req.json().catch(() => null);
+    const messages = body?.messages;
+
+    // Validate payload
+    const MAX_MESSAGES = 50;
+    const MAX_CONTENT_LEN = 2000;
+    if (!Array.isArray(messages) || messages.length === 0 || messages.length > MAX_MESSAGES) {
+      return new Response(JSON.stringify({ error: "Invalid request." }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const sanitized: Array<{ role: string; content: string }> = [];
+    for (const m of messages) {
+      if (!m || typeof m !== "object") {
+        return new Response(JSON.stringify({ error: "Invalid request." }), {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      const role = m.role;
+      const content = m.content;
+      if (
+        (role !== "user" && role !== "assistant") ||
+        typeof content !== "string" ||
+        content.length === 0 ||
+        content.length > MAX_CONTENT_LEN
+      ) {
+        return new Response(JSON.stringify({ error: "Invalid request." }), {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      sanitized.push({ role, content });
+    }
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -69,7 +124,7 @@ All plans include DDoS Protection and 99.9% Uptime.
 Support is available via Discord tickets.
 Discord: https://discord.gg/F8PKTvvMUZ`,
           },
-          ...messages,
+          ...sanitized,
         ],
         stream: true,
       }),
