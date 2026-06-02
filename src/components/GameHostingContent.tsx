@@ -51,6 +51,7 @@ const GameHostingContent = () => {
   const { formatPrice, currency } = useCurrency();
   const [processor, setProcessor] = useState<"AMD EPYC" | "Intel Xeon">("AMD EPYC");
   const [processorOpen, setProcessorOpen] = useState(false);
+  const [plansProcessor, setPlansProcessor] = useState<"AMD EPYC" | "Intel Xeon">("AMD EPYC");
   const [ram, setRam] = useState(4);
   const [cpu, setCpu] = useState(1);
   const [cpuIndex, setCpuIndex] = useState(2);
@@ -60,8 +61,9 @@ const GameHostingContent = () => {
   const [aiLoading, setAiLoading] = useState(false);
   const processorRef = useRef<HTMLDivElement>(null);
 
-  const priceMultiplier = processor === "Intel Xeon" ? 0.6 : 1;
-  const customPrice = Math.round(estimatePrice(ram, cpu, storage) * priceMultiplier);
+  const customMultiplier = processor === "Intel Xeon" ? 0.6 : 1;
+  const plansMultiplier = plansProcessor === "Intel Xeon" ? 0.6 : 1;
+  const customPrice = Math.round(estimatePrice(ram, cpu, storage) * customMultiplier);
 
   const handleCpuChange = (val: number[]) => {
     const idx = val[0];
@@ -98,6 +100,21 @@ const GameHostingContent = () => {
         <span className="inline-block px-6 py-2.5 rounded-full gradient-primary text-primary-foreground text-sm font-bold tracking-wide pointer-events-none select-none">
           Minecraft
         </span>
+        <div className="mt-6 inline-flex items-center gap-2 p-1 rounded-full bg-card border border-border">
+          {(["AMD EPYC", "Intel Xeon"] as const).map((proc) => (
+            <button
+              key={proc}
+              onClick={() => setPlansProcessor(proc)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                plansProcessor === proc
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {proc}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Plan Cards */}
@@ -108,7 +125,7 @@ const GameHostingContent = () => {
             className="relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_hsl(48_100%_50%/0.2)]"
           >
             <h3 className="text-lg font-bold text-foreground mb-2">{plan.name}</h3>
-            <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(Math.round(plan.priceINR * priceMultiplier))}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
+            <p className="text-3xl font-bold gradient-text mb-6">{formatPrice(Math.round(plan.priceINR * plansMultiplier))}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
             <ul className="space-y-2.5 mb-6">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Check className="w-4 h-4 text-primary flex-shrink-0" />
@@ -181,7 +198,7 @@ const GameHostingContent = () => {
                       onClick={() => { setProcessor(proc); setProcessorOpen(false); }}
                       className={`w-full text-left px-4 py-2 text-sm transition-colors ${proc === processor ? "text-primary font-medium" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}
                     >
-                      {proc}{proc === "Intel Xeon" ? " (40% off)" : ""}
+                      {proc}
                     </button>
                   ))}
                 </div>
@@ -310,7 +327,7 @@ const GameHostingContent = () => {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Backup</h3>
             <p className="text-sm text-muted-foreground mb-4">Automatic server backups with easy one-click restoration to keep your data safe.</p>
-            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(35)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
+            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(10)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
             <a
               href="https://discord.com/channels/1478422228323532883/1478432871889895504"
               target="_blank"
@@ -331,7 +348,7 @@ const GameHostingContent = () => {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Allocation</h3>
             <p className="text-sm text-muted-foreground mb-4">Additional port allocations for your server to run multiple services simultaneously.</p>
-            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(100)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
+            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(20)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
             <a
               href="https://discord.com/channels/1478422228323532883/1478432871889895504"
               target="_blank"
@@ -349,7 +366,7 @@ const GameHostingContent = () => {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Database</h3>
             <p className="text-sm text-muted-foreground mb-4">Managed database instances for plugins and mods that require persistent data storage.</p>
-            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(85)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
+            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(15)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
             <a
               href="https://discord.com/channels/1478422228323532883/1478432871889895504"
               target="_blank"
