@@ -16,7 +16,7 @@ const Support = () => {
           </p>
 
           <a
-            href="https://discord.com/channels/1472607382751412298/1472907775976935456"
+            href="https://discord.com/channels/1507652626857328802/1508834340329623656"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-lg font-semibold gradient-primary text-primary-foreground hover:opacity-90 transition-opacity float-animation glow-effect"

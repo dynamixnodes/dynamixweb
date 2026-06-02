@@ -11,7 +11,7 @@ const minecraftPlans = [
   { name: "Eternal - Gold", ram: 12, cpu: 4, storage: 48, priceINR: 180 },
   { name: "Eternal - Diamond", ram: 16, cpu: 6, storage: 64, priceINR: 365 },
   { name: "Eternal - Emerald", ram: 32, cpu: 8, storage: 128, priceINR: 630 },
-  { name: "Eternal - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1000 },
+  { name: "Eternal - Netherite", ram: 64, cpu: 12, storage: 256, priceINR: 1100 },
   { name: "Eternal - Enderium", ram: 256, cpu: 30, storage: 1024, priceINR: 4500 },
 ];
 
