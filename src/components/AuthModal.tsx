@@ -17,7 +17,6 @@ const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: integrate with auth backend
-    console.log(mode, { email, password, name });
   };
 
   return (
