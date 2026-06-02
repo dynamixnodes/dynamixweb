@@ -327,7 +327,7 @@ const GameHostingContent = () => {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Backup</h3>
             <p className="text-sm text-muted-foreground mb-4">Automatic server backups with easy one-click restoration to keep your data safe.</p>
-            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(35)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
+            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(10)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
             <a
               href="https://discord.com/channels/1478422228323532883/1478432871889895504"
               target="_blank"
@@ -348,7 +348,7 @@ const GameHostingContent = () => {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Allocation</h3>
             <p className="text-sm text-muted-foreground mb-4">Additional port allocations for your server to run multiple services simultaneously.</p>
-            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(100)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
+            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(20)}<span className="text-sm text-muted-foreground font-normal">/mo</span></p>
             <a
               href="https://discord.com/channels/1478422228323532883/1478432871889895504"
               target="_blank"
@@ -366,7 +366,7 @@ const GameHostingContent = () => {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Database</h3>
             <p className="text-sm text-muted-foreground mb-4">Managed database instances for plugins and mods that require persistent data storage.</p>
-            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(85)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
+            <p className="text-2xl font-bold text-primary mb-4">{formatPrice(15)}<span className="text-sm text-muted-foreground font-normal">/unit</span></p>
             <a
               href="https://discord.com/channels/1478422228323532883/1478432871889895504"
               target="_blank"
